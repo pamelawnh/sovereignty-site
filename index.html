@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sovereignty HealthTech™ — Provider Network Intelligence</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --teal: #0E6D6C;
+  --teal-mid: #1A9E9C;
+  --teal-light: #EDF7F7;
+  --teal-deep: #0B5B5A;
+  --charcoal: #1A202C;
+  --slate: #4A5568;
+  --muted: #718096;
+  --gold: #C9A84C;
+  --ice: #F7FAFB;
+  --rose: #DC2626;
+  --amber: #D97706;
+  --green: #16A34A;
+  --white: #ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;color:var(--charcoal);background:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
+.container-main{max-width:1200px;margin:0 auto;padding:0 40px;}
+@media(max-width:768px){.container-main{padding:0 20px;}}
+.section-pad{padding:96px 0;}
+@media(max-width:768px){.section-pad{padding:64px 0;}}
+.micro-label{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:16px;font-weight:600;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:none;}
+/* NAV */
+#navbar-sht{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #E2E8F0;z-index:1000;height:64px;display:flex;align-items:center;padding:0 40px;justify-content:space-between;}
+@media(max-width:768px){#navbar-sht{padding:0 16px;}}
+.nav-logo-sht{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-sht span{font-family:'Playfair Display',serif;font-size:20px;color:var(--teal);font-weight:700;}
+@media(max-width:768px){.nav-logo-sht span{font-size:15px;}}
+.nav-links-sht{display:flex;gap:18px;align-items:center;}
+.nav-links-sht a{font-family:'Inter',sans-serif;font-weight:500;font-size:13px;color:var(--slate);text-decoration:none;transition:color 0.2s;}
+.nav-links-sht a:hover{color:var(--teal);}
+@media(max-width:1100px){.nav-links-sht{gap:10px;}.nav-links-sht a{font-size:11px;}}
+@media(max-width:768px){.nav-links-sht{display:none;}}
+.nav-cta-btn{background:var(--teal);color:var(--white)!important;padding:10px 20px;border-radius:6px;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;text-decoration:none;transition:background 0.2s;white-space:nowrap;}
+.nav-cta-btn:hover{background:var(--teal-deep);}
+@media(max-width:768px){.nav-cta-btn{display:none;}}
+#hamburger-sht{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+@media(max-width:768px){#hamburger-sht{display:block;}}
+#mobile-menu-sht{display:none;position:fixed;inset:0;background:var(--white);z-index:9999;flex-direction:column;padding:20px;overflow-y:auto;}
+#mobile-menu-sht.open{display:flex;}
+#mobile-menu-sht a{font-family:'Inter',sans-serif;font-weight:500;font-size:16px;color:var(--charcoal);text-decoration:none;padding:14px 0;border-bottom:1px solid #E2E8F0;}
+#mobile-menu-sht a:hover{color:var(--teal);}
+/* HERO */
+#home{min-height:100vh;background:linear-gradient(135deg,#0E6D6C 0%,#2D6A8A 55%,#38505E 100%);display:flex;align-items:center;overflow:hidden;padding-top:64px;}
+.hero-cols{display:flex;align-items:center;gap:48px;}
+.hero-left{flex:0 0 60%;}
+.hero-right{flex:0 0 38%;display:flex;justify-content:center;}
+@media(max-width:768px){.hero-cols{flex-direction:column;gap:32px;}.hero-left,.hero-right{flex:0 0 100%;}}
+.hero-h1{font-size:62px;color:var(--white);line-height:1.15;margin-bottom:20px;}
+@media(max-width:768px){.hero-h1{font-size:40px;}}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.82);line-height:1.7;max-width:560px;}
+.hero-ctas{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;}
+.hero-ctas a{padding:14px 28px;border-radius:6px;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;text-decoration:none;transition:all 0.2s;}
+.hero-cta-primary{background:var(--white);color:var(--teal);}
+.hero-cta-primary:hover{background:#e0f0f0;}
+.hero-cta-secondary{border:2px solid rgba(255,255,255,0.7);color:var(--white);background:transparent;}
+.hero-cta-secondary:hover{background:rgba(255,255,255,0.1);}
+.hero-pills{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;}
+.hero-pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:50px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:13px;color:var(--white);}
+.hero-svg-wrap{animation:float 7s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+/* THESIS */
+.thesis-bar{background:var(--charcoal);padding:36px 60px;}
+@media(max-width:768px){.thesis-bar{padding:24px 20px;}}
+.thesis-nodes{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;}
+.thesis-node{display:flex;flex-direction:column;align-items:flex-start;min-width:160px;padding:8px 0;}
+.thesis-num{font-family:'Inter',sans-serif;font-weight:700;font-size:11px;color:var(--teal-mid);letter-spacing:0.1em;}
+.thesis-title{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--white);margin-top:2px;}
+.thesis-desc{font-family:'Inter',sans-serif;font-weight:400;font-size:11px;color:var(--muted);margin-top:2px;}
+.thesis-arrow{color:var(--teal-mid);font-size:18px;margin:0 8px;align-self:center;}
+@media(max-width:768px){.thesis-arrow{display:none;}.thesis-node{min-width:100%;}}
+.thesis-bottom{text-align:center;margin-top:28px;font-family:'Inter',sans-serif;font-style:italic;font-size:15px;color:rgba(255,255,255,0.75);max-width:780px;margin-left:auto;margin-right:auto;}
+/* CARDS */
+.card-shadow{background:var(--white);box-shadow:0 4px 24px rgba(0,0,0,0.07);border-radius:8px;}
+.card-hover{transition:transform 0.3s ease,box-shadow 0.3s ease;}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.12);}
+/* TABS */
+.tab-btn-sht{font-family:'Inter',sans-serif;font-weight:600;font-size:14px;padding:12px 24px;border-radius:6px 6px 0 0;cursor:pointer;border:none;transition:all 0.2s;}
+.tab-btn-sht.active{background:var(--teal);color:var(--white);}
+.tab-btn-sht:not(.active){background:var(--white);border:1px solid #E2E8F0;color:var(--slate);}
+/* SCORE BARS */
+.score-bar-track{background:#E2E8F0;height:10px;border-radius:5px;overflow:hidden;margin-top:6px;}
+.score-bar-fill{height:100%;border-radius:5px;width:0;transition:width 1.2s ease;}
+/* LAYER BANDS */
+.layer-band{display:flex;align-items:center;padding:16px 40px;gap:16px;}
+@media(max-width:768px){.layer-band{padding:12px 16px;flex-direction:column;align-items:flex-start;}}
+.layer-badge{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:13px;flex-shrink:0;}
+/* ENGAGEMENT STEPS */
+.step-line{position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--teal-mid);}
+@media(max-width:768px){.step-line{display:none;}}
+.step-card-wrap{position:relative;display:flex;gap:24px;margin-bottom:24px;padding-left:60px;}
+@media(max-width:768px){.step-card-wrap{padding-left:0;}}
+.step-circle{position:absolute;left:0;top:0;width:40px;height:40px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:'Inter',sans-serif;font-weight:700;font-size:16px;flex-shrink:0;}
+@media(max-width:768px){.step-circle{position:static;margin-bottom:12px;}}
+/* BUBBLE CHART */
+.bubble-chart{position:relative;width:500px;height:380px;border-left:2px solid #E2E8F0;border-bottom:2px solid #E2E8F0;margin:40px auto;}
+@media(max-width:600px){.bubble-chart{width:100%;height:300px;}}
+.bubble{position:absolute;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:'Inter',sans-serif;font-size:10px;font-weight:600;text-align:center;line-height:1.2;cursor:default;}
+@keyframes pulse-bubble{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+/* COUNTER */
+.counter-num{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:var(--teal);}
+@media(max-width:768px){.counter-num{font-size:40px;}}
+/* QUIZ MODAL */
+#quiz-modal-sht{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:9999;justify-content:center;align-items:center;}
+#quiz-modal-sht.open{display:flex;}
+.quiz-card{max-width:680px;width:90vw;max-height:90vh;overflow-y:auto;background:var(--white);border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,0.3);position:relative;}
+.quiz-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--slate);z-index:10;}
+.quiz-intro-bg{background:linear-gradient(135deg,#0E6D6C,#2D6A8A);padding:56px 48px;text-align:center;border-radius:12px 12px 0 0;}
+@media(max-width:768px){.quiz-intro-bg{padding:32px 20px;}}
+.quiz-pills{display:flex;gap:10px;justify-content:center;margin:20px 0;flex-wrap:wrap;}
+.quiz-pill{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:6px 16px;font-family:'Inter',sans-serif;font-size:12px;color:var(--white);}
+.answer-card{width:100%;border:1.5px solid #E2E8F0;border-radius:8px;padding:18px 24px;margin-bottom:10px;cursor:pointer;display:flex;gap:16px;align-items:flex-start;text-align:left;background:var(--white);font-family:'Inter',sans-serif;font-size:14px;transition:all 0.2s;}
+.answer-card:hover{border-color:var(--teal-mid);background:var(--teal-light);}
+.answer-card.selected{border:2px solid var(--teal);background:var(--teal-light);}
+.radio-circle{width:20px;height:20px;border-radius:50%;border:2px solid #CBD5E0;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.answer-card.selected .radio-circle{border-color:var(--teal);background:var(--teal);}
+.answer-card.selected .radio-circle::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--white);}
+/* GAUGE */
+.gauge-svg{width:200px;height:110px;}
+.gauge-bg{fill:none;stroke:#E2E8F0;stroke-width:12;stroke-linecap:round;}
+.gauge-fill{fill:none;stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease;transform-origin:center;}
+/* FLOAT BTN */
+#float-btn-sht{position:fixed;bottom:32px;right:32px;z-index:9998;background:var(--teal);color:var(--white);font-family:'Inter',sans-serif;font-weight:600;font-size:14px;border-radius:50px;padding:14px 24px;box-shadow:0 8px 24px rgba(14,109,108,0.4);cursor:pointer;display:flex;align-items:center;gap:8px;border:none;transition:transform 0.2s,box-shadow 0.2s;}
+#float-btn-sht:hover{transform:scale(1.04);box-shadow:0 12px 32px rgba(14,109,108,0.5);}
+@media(max-width:768px){#float-btn-sht{bottom:20px;right:20px;padding:12px 18px;font-size:12px;}}
+.pulse-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;border:2px solid var(--teal);border-radius:50px;animation:pulse-ring 2s infinite;pointer-events:none;}
+@keyframes pulse-ring{0%{transform:translate(-50%,-50%) scale(0.8);opacity:1}100%{transform:translate(-50%,-50%) scale(1.5);opacity:0}}
+/* DOT GRID */
+.dot-grid-bg{background-image:radial-gradient(circle,rgba(14,109,108,0.04) 1px,transparent 1px);background-size:24px 24px;}
+/* FRAMEWORK TABLE */
+.fw-table{width:100%;border-collapse:collapse;margin-top:40px;}
+.fw-table thead th{background:var(--charcoal);color:var(--white);font-family:'Inter',sans-serif;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;padding:14px 20px;text-align:left;}
+.fw-table tbody tr{transition:all 0.2s;}
+.fw-table tbody tr:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+.fw-table td{padding:18px 20px;vertical-align:top;font-family:'Inter',sans-serif;font-size:14px;}
+@media(max-width:768px){
+  .fw-table,.fw-table thead,.fw-table tbody,.fw-table th,.fw-table td,.fw-table tr{display:block;}
+  .fw-table thead{display:none;}
+  .fw-table tr{margin-bottom:16px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+  .fw-table td{padding:12px 16px;border-bottom:1px solid #E2E8F0;}
+  .fw-table td::before{content:attr(data-label);display:block;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);margin-bottom:4px;}
+}
+/* FORM */
+.form-input{font-family:'Inter',sans-serif;font-size:14px;border:1px solid #E2E8F0;border-radius:6px;padding:12px;width:100%;transition:border-color 0.2s;outline:none;}
+.form-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,109,108,0.1);}
+/* FOOTER */
+.footer-sht{background:var(--charcoal);padding:60px 0 32px;}
+.footer-links a{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;display:block;margin-bottom:10px;transition:color 0.2s;}
+.footer-links a:hover{color:var(--white);}
+/* PRINT HIDE */
+@media print{#navbar-sht,#float-btn-sht,#quiz-modal-sht{display:none!important;}}
+</style>
+</head>
+<body data-id="0">
+<app-icon data-id="1" hidden data-icon="activity" data-palette="Green"></app-icon>
+
+<!-- NAVIGATION -->
+<nav data-id="2" id="navbar-sht">
+  <a data-id="3" href="#home" class="nav-logo-sht">
+    <svg data-id="4" width="32" height="24" viewBox="0 0 32 24" fill="none"><circle data-id="5" cx="8" cy="12" r="4" fill="#0E6D6C"/><circle data-id="6" cx="20" cy="5" r="4" fill="#1A9E9C"/><circle data-id="7" cx="20" cy="19" r="4" fill="#1A9E9C"/><line data-id="8" x1="11" y1="10" x2="17" y2="6" stroke="#0E6D6C" stroke-width="1.5"/><line data-id="9" x1="11" y1="14" x2="17" y2="18" stroke="#0E6D6C" stroke-width="1.5"/><line data-id="10" x1="20" y1="9" x2="20" y2="15" stroke="#1A9E9C" stroke-width="1.5"/></svg>
+    <span data-id="11">Sovereignty HealthTech™</span>
+  </a>
+  <div data-id="12" class="nav-links-sht" id="nav-center-links-sht">
+    <a data-id="13" href="#home">Home</a>
+    <a data-id="14" href="#risk-assessment">Risk Assessment</a>
+    <a data-id="15" href="#problem">Problem</a>
+    <a data-id="16" href="#solution">Solution</a>
+    <a data-id="17" href="#diagnostics">Diagnostics</a>
+    <a data-id="18" href="#engagement">Health Check</a>
+    <a data-id="19" href="#systems-mri">Systems MRI™</a>
+    <a data-id="20" href="#frameworks">Framework</a>
+    <a data-id="21" href="#results">Results</a>
+    <a data-id="22" href="#serve">Who We Serve</a>
+    <a data-id="23" href="#about">About</a>
+    <a data-id="24" href="#contact">Contact</a>
+  </div>
+  <a data-id="25" href="#contact" class="nav-cta-btn" id="nav-cta-sht">Request a Health Check</a>
+  <button data-id="26" id="hamburger-sht" aria-label="Open menu">
+    <svg data-id="27" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A5568" stroke-width="2" stroke-linecap="round"><line data-id="28" x1="3" y1="6" x2="21" y2="6"/><line data-id="29" x1="3" y1="12" x2="21" y2="12"/><line data-id="30" x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div data-id="31" id="mobile-menu-sht">
+  <button data-id="32" id="mobile-close-sht" style="align-self:flex-end;background:none;border:none;cursor:pointer;padding:8px;">
+    <svg data-id="33" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A5568" stroke-width="2" stroke-linecap="round"><line data-id="34" x1="18" y1="6" x2="6" y2="18"/><line data-id="35" x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a data-id="36" href="#home" class="mm-link">Home</a>
+  <a data-id="37" href="#risk-assessment" class="mm-link">Risk Assessment</a>
+  <a data-id="38" href="#problem" class="mm-link">Problem</a>
+  <a data-id="39" href="#solution" class="mm-link">Solution</a>
+  <a data-id="40" href="#diagnostics" class="mm-link">Diagnostics</a>
+  <a data-id="41" href="#engagement" class="mm-link">Health Check</a>
+  <a data-id="42" href="#systems-mri" class="mm-link">Systems MRI™</a>
+  <a data-id="43" href="#frameworks" class="mm-link">Framework</a>
+  <a data-id="44" href="#results" class="mm-link">Results</a>
+  <a data-id="45" href="#serve" class="mm-link">Who We Serve</a>
+  <a data-id="46" href="#about" class="mm-link">About</a>
+  <a data-id="47" href="#contact" class="mm-link">Contact</a>
+  <a data-id="48" href="#contact" style="margin-top:20px;display:inline-block;background:var(--teal);color:white;padding:14px 28px;border-radius:6px;font-weight:600;text-align:center;">Request a Health Check</a>
+</div>
+
+<!-- HERO -->
+<section data-id="49" id="home">
+  <div data-id="50" class="container-main" style="padding-top:40px;padding-bottom:60px;">
+    <div data-id="51" class="hero-cols">
+      <div data-id="52" class="hero-left">
+        <p data-id="53" class="micro-label" style="color:#81C9C8;">PROVIDER NETWORK INTELLIGENCE INFRASTRUCTURE</p>
+        <h1 data-id="54" class="hero-h1" id="hero-heading-a1b2">Intelligence That Commands the Network.</h1>
+        <p data-id="55" class="hero-sub" id="hero-sub-c3d4">Sovereignty HealthTech™ delivers real-time provider data infrastructure, enabling health plans and risk-bearing entities to operate with unprecedented precision, compliance, and strategic clarity.</p>
+        <div data-id="56" class="hero-ctas">
+          <a data-id="57" href="#contact" class="hero-cta-primary" id="hero-cta1-e5f6">Request a Provider Data Health Check</a>
+          <a data-id="58" href="#diagnostics" class="hero-cta-secondary" id="hero-cta2-g7h8">Explore the Diagnostic Platform</a>
+        </div>
+        <div data-id="59" class="hero-pills">
+          <span data-id="60" class="hero-pill">98.7% Network Accuracy</span>
+          <span data-id="61" class="hero-pill">340+ Health Plans Served</span>
+          <span data-id="62" class="hero-pill">Real-Time Data Sync</span>
+        </div>
+      </div>
+      <div data-id="63" class="hero-right">
+        <div data-id="64" class="hero-svg-wrap">
+          <svg data-id="65" width="400" height="380" viewBox="0 0 400 380" fill="none" id="network-svg-i9j0">
+            <!-- Central node -->
+            <circle data-id="66" cx="200" cy="190" r="8" fill="white"/>
+            <!-- Outer ring nodes (hexagon at r=100) -->
+            <circle data-id="67" cx="200" cy="90" r="5" fill="rgba(255,255,255,0.7)"/>
+            <circle data-id="68" cx="286" cy="140" r="5" fill="rgba(255,255,255,0.7)"/>
+            <circle data-id="69" cx="286" cy="240" r="5" fill="rgba(255,255,255,0.7)"/>
+            <circle data-id="70" cx="200" cy="290" r="5" fill="rgba(255,255,255,0.7)"/>
+            <circle data-id="71" cx="114" cy="240" r="5" fill="rgba(255,255,255,0.7)"/>
+            <circle data-id="72" cx="114" cy="140" r="5" fill="rgba(255,255,255,0.7)"/>
+            <!-- Outer outer ring (r=160) -->
+            <circle data-id="73" cx="200" cy="30" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="74" cx="338" cy="110" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="75" cx="338" cy="270" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="76" cx="200" cy="350" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="77" cx="62" cy="270" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="78" cx="62" cy="110" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="79" cx="270" cy="50" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="80" cx="130" cy="50" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="81" cx="330" cy="190" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="82" cx="70" cy="190" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="83" cx="270" cy="330" r="3" fill="rgba(255,255,255,0.4)"/>
+            <circle data-id="84" cx="130" cy="330" r="3" fill="rgba(255,255,255,0.4)"/>
+            <!-- Lines from center to mid ring -->
+            <line data-id="85" x1="200" y1="190" x2="200" y2="90" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <line data-id="86" x1="200" y1="190" x2="286" y2="140" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <line data-id="87" x1="200" y1="190" x2="286" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <line data-id="88" x1="200" y1="190" x2="200" y2="290" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <line data-id="89" x1="200" y1="190" x2="114" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <line data-id="90" x1="200" y1="190" x2="114" y2="140" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <!-- Lines from mid to outer -->
+            <line data-id="91" x1="200" y1="90" x2="200" y2="30" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="92" x1="200" y1="90" x2="270" y2="50" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="93" x1="200" y1="90" x2="130" y2="50" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="94" x1="286" y1="140" x2="338" y2="110" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="95" x1="286" y1="140" x2="330" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="96" x1="286" y1="240" x2="338" y2="270" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="97" x1="286" y1="240" x2="330" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="98" x1="200" y1="290" x2="200" y2="350" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="99" x1="200" y1="290" x2="270" y2="330" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="100" x1="200" y1="290" x2="130" y2="330" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="101" x1="114" y1="240" x2="62" y2="270" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="102" x1="114" y1="240" x2="70" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="103" x1="114" y1="140" x2="62" y2="110" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line data-id="104" x1="114" y1="140" x2="70" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <!-- Labels -->
+            <text data-id="105" x="200" y="78" fill="white" font-family="Inter" font-size="10" text-anchor="middle">Providers</text>
+            <text data-id="106" x="298" y="135" fill="white" font-family="Inter" font-size="10" text-anchor="start">Payers</text>
+            <text data-id="107" x="298" y="248" fill="white" font-family="Inter" font-size="10" text-anchor="start">Regulators</text>
+            <text data-id="108" x="200" y="310" fill="white" font-family="Inter" font-size="10" text-anchor="middle">ACOs</text>
+            <text data-id="109" x="102" y="248" fill="white" font-family="Inter" font-size="10" text-anchor="end">CMS</text>
+            <text data-id="110" x="102" y="135" fill="white" font-family="Inter" font-size="10" text-anchor="end">IPAs</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS BAR -->
+<div data-id="111" class="thesis-bar" id="thesis-bar-k1l2">
+  <div data-id="112" class="thesis-nodes" style="max-width:1200px;margin:0 auto;">
+    <div data-id="113" class="thesis-node"><span data-id="114" class="thesis-num">01</span><span data-id="115" class="thesis-title">DATA TRUTH BREAKS</span><span data-id="116" class="thesis-desc">NPI / TIN / contract / taxonomy drift</span></div>
+    <span data-id="117" class="thesis-arrow">→</span>
+    <div data-id="118" class="thesis-node"><span data-id="119" class="thesis-num">02</span><span data-id="120" class="thesis-title">OPERATIONS COMPENSATE</span><span data-id="121" class="thesis-desc">Manual rework, exception queues, escalation loops</span></div>
+    <span data-id="122" class="thesis-arrow">→</span>
+    <div data-id="123" class="thesis-node"><span data-id="124" class="thesis-num">03</span><span data-id="125" class="thesis-title">COMPLIANCE RISK RISES</span><span data-id="126" class="thesis-desc">Directory exposure, audit gaps, weak evidence</span></div>
+    <span data-id="127" class="thesis-arrow">→</span>
+    <div data-id="128" class="thesis-node"><span data-id="129" class="thesis-num">04</span><span data-id="130" class="thesis-title">FINANCIAL IMPACT EXPANDS</span><span data-id="131" class="thesis-desc">Claim/payment misalignment, provider friction</span></div>
+    <span data-id="132" class="thesis-arrow">→</span>
+    <div data-id="133" class="thesis-node"><span data-id="134" class="thesis-num">05</span><span data-id="135" class="thesis-title">HUMAN SYSTEM STRAINS</span><span data-id="136" class="thesis-desc">Invisible reconciliation labor and burnout</span></div>
+  </div>
+  <p data-id="137" class="thesis-bottom">The winning move is not more cleanup. It is a diagnostic operating model that makes provider truth visible, governed, measurable, and scalable.</p>
+</div>
+
+<!-- RISK ASSESSMENT -->
+<section data-id="138" id="risk-assessment" class="section-pad dot-grid-bg" style="background:var(--white);">
+  <div data-id="139" class="container-main">
+    <div data-id="140" class="reveal" style="display:flex;gap:48px;align-items:center;flex-wrap:wrap;">
+      <div data-id="141" style="flex:1;min-width:300px;">
+        <p data-id="142" class="micro-label" style="color:var(--teal);">PROVIDER DATA RISK ASSESSMENT</p>
+        <h2 data-id="143" style="font-size:42px;color:var(--charcoal);line-height:1.2;margin-bottom:16px;" id="ra-heading-m3n4">Is Your Provider Data at Risk? Find Out in 3 Minutes.</h2>
+        <p data-id="144" style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:24px;">Answer 10 targeted questions across five provider data integrity domains — identity, workflow, governance, delegation, and human system load. Get an instant risk profile with a clear recommendation.</p>
+        <div data-id="145" style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
+          <div data-id="146" style="background:var(--teal-light);border-left:3px solid var(--teal);padding:12px 16px;border-radius:0 6px 6px 0;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--charcoal);">✓ 10 questions · approximately 3 minutes</div>
+          <div data-id="147" style="background:var(--teal-light);border-left:3px solid var(--teal);padding:12px 16px;border-radius:0 6px 6px 0;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--charcoal);">✓ Instant domain-by-domain risk breakdown</div>
+          <div data-id="148" style="background:var(--teal-light);border-left:3px solid var(--teal);padding:12px 16px;border-radius:0 6px 6px 0;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--charcoal);">✓ Routed recommendation: Health Check™ or Systems MRI™</div>
+        </div>
+        <button data-id="149" id="open-quiz-btn-o5p6" style="background:var(--teal);color:white;font-family:'Inter',sans-serif;font-weight:600;font-size:16px;padding:16px 32px;border-radius:6px;border:none;cursor:pointer;transition:background 0.2s;">Start the Free Assessment →</button>
+        <p data-id="150" style="font-size:12px;color:var(--muted);margin-top:12px;">No account required · Sovereign confidentiality</p>
+      </div>
+      <div data-id="151" style="flex:0 0 400px;min-width:280px;">
+        <div data-id="152" class="card-shadow" style="padding:28px;border-radius:10px;pointer-events:none;border:1px solid #E2E8F0;">
+          <div data-id="153" style="display:flex;justify-content:flex-end;margin-bottom:12px;"><span data-id="154" style="font-size:12px;color:var(--muted);">Q4 of 10</span></div>
+          <div data-id="155" style="background:#E2E8F0;height:4px;border-radius:2px;margin-bottom:16px;"><div data-id="156" style="width:40%;height:100%;background:var(--teal);border-radius:2px;"></div></div>
+          <div data-id="157" style="display:flex;gap:6px;align-items:center;margin-bottom:16px;">
+            <span data-id="158" style="width:10px;height:10px;border-radius:50%;background:var(--teal);display:inline-block;"></span>
+            <span data-id="159" style="width:10px;height:10px;border-radius:50%;background:var(--teal);display:inline-block;"></span>
+            <span data-id="160" style="width:10px;height:10px;border-radius:50%;background:#E2E8F0;display:inline-block;"></span>
+            <span data-id="161" style="width:10px;height:10px;border-radius:50%;background:#E2E8F0;display:inline-block;"></span>
+            <span data-id="162" style="width:10px;height:10px;border-radius:50%;background:#E2E8F0;display:inline-block;"></span>
+            <span data-id="163" style="font-size:12px;color:var(--teal);margin-left:8px;font-weight:500;">Domain 2 of 5</span>
+          </div>
+          <p data-id="164" style="font-family:'Playfair Display',serif;font-size:16px;color:var(--charcoal);margin-bottom:16px;line-height:1.5;">How confident are you that your NPI, TIN, taxonomy, and contract records are consistent and accurate across all systems?</p>
+          <div data-id="165" style="border:2px solid var(--teal);background:var(--teal-light);padding:12px 16px;border-radius:6px;margin-bottom:6px;font-size:14px;">Fully confident — we maintain a validated golden record</div>
+          <div data-id="166" style="border:1px solid #E2E8F0;padding:12px 16px;border-radius:6px;margin-bottom:6px;font-size:14px;">Somewhat confident — errors surface occasionally</div>
+          <div data-id="167" style="border:1px solid #E2E8F0;padding:12px 16px;border-radius:6px;margin-bottom:12px;font-size:14px;">Not confident — mismatches are frequent</div>
+          <p data-id="168" style="text-align:center;font-size:13px;color:var(--teal);font-weight:500;">Start to reveal your risk profile →</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section data-id="169" id="problem" class="section-pad" style="background:var(--ice);">
+  <div data-id="170" class="container-main">
+    <div data-id="171" class="reveal">
+      <p data-id="172" class="micro-label" style="color:var(--teal);">THE CHALLENGE</p>
+      <h2 data-id="173" style="font-size:42px;color:var(--charcoal);margin-bottom:16px;" id="problem-heading-q7r8">Provider Networks Are Fundamentally Broken.</h2>
+      <p data-id="174" style="font-size:17px;color:var(--muted);max-width:680px;line-height:1.7;margin-bottom:40px;">Health plans, ACOs, and risk-bearing entities navigate an increasingly fragile ecosystem — where inaccurate provider directories, fragmented credentialing data, and regulatory exposure converge to create systemic risk at scale.</p>
+    </div>
+    <div data-id="175" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;" class="reveal">
+      <div data-id="176" class="card-shadow" style="border-left:4px solid var(--teal);padding:28px;border-radius:0 8px 8px 0;">
+        <span data-id="177" style="font-family:'Inter',sans-serif;font-weight:600;font-size:11px;color:var(--teal-mid);text-transform:uppercase;letter-spacing:0.1em;">Provider Operations</span>
+        <p data-id="178" style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--charcoal);margin:10px 0;">"We keep fixing the same records."</p>
+        <p data-id="179" style="font-size:14px;color:var(--muted);">Backlogs, exception loops, SLA pressure</p>
+      </div>
+      <div data-id="180" class="card-shadow" style="border-left:4px solid var(--teal);padding:28px;border-radius:0 8px 8px 0;">
+        <span data-id="181" style="font-family:'Inter',sans-serif;font-weight:600;font-size:11px;color:var(--teal-mid);text-transform:uppercase;letter-spacing:0.1em;">Compliance / Quality</span>
+        <p data-id="182" style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--charcoal);margin:10px 0;">"We are not confident the evidence will hold."</p>
+        <p data-id="183" style="font-size:14px;color:var(--muted);">Audit exposure, weak controls, documentation gaps</p>
+      </div>
+      <div data-id="184" class="card-shadow" style="border-left:4px solid var(--teal);padding:28px;border-radius:0 8px 8px 0;">
+        <span data-id="185" style="font-family:'Inter',sans-serif;font-weight:600;font-size:11px;color:var(--teal-mid);text-transform:uppercase;letter-spacing:0.1em;">Network / Provider Relations</span>
+        <p data-id="186" style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--charcoal);margin:10px 0;">"Providers are escalating inaccurate data."</p>
+        <p data-id="187" style="font-size:14px;color:var(--muted);">Trust erosion, directory complaints, market friction</p>
+      </div>
+      <div data-id="188" class="card-shadow" style="border-left:4px solid var(--teal);padding:28px;border-radius:0 8px 8px 0;">
+        <span data-id="189" style="font-family:'Inter',sans-serif;font-weight:600;font-size:11px;color:var(--teal-mid);text-transform:uppercase;letter-spacing:0.1em;">Finance / Claims</span>
+        <p data-id="190" style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--charcoal);margin:10px 0;">"The right provider is not always linked to the right economics."</p>
+        <p data-id="191" style="font-size:14px;color:var(--muted);">Contract/TIN errors, payment misalignment</p>
+      </div>
+      <div data-id="192" class="card-shadow" style="border-left:4px solid var(--teal);padding:28px;border-radius:0 8px 8px 0;">
+        <span data-id="193" style="font-family:'Inter',sans-serif;font-weight:600;font-size:11px;color:var(--teal-mid);text-transform:uppercase;letter-spacing:0.1em;">Executive Leadership</span>
+        <p data-id="194" style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--charcoal);margin:10px 0;">"We cannot see the real risk until it escalates."</p>
+        <p data-id="195" style="font-size:14px;color:var(--muted);">Reactive decisions, fragmented dashboards, hidden labor</p>
+      </div>
+    </div>
+    <div data-id="196" class="reveal" style="background:var(--charcoal);padding:40px;border-radius:8px;margin-top:40px;">
+      <p data-id="197" style="font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--white);margin-bottom:16px;">Underlying Structural Pattern</p>
+      <div data-id="198" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+        <span data-id="199" style="border:1px solid var(--teal-mid);color:var(--teal-mid);padding:8px 18px;border-radius:50px;font-size:13px;">Fragmented identity rules</span>
+        <span data-id="200" style="border:1px solid var(--teal-mid);color:var(--teal-mid);padding:8px 18px;border-radius:50px;font-size:13px;">Non-normalized intake</span>
+        <span data-id="201" style="border:1px solid var(--teal-mid);color:var(--teal-mid);padding:8px 18px;border-radius:50px;font-size:13px;">Weak evidence chain</span>
+        <span data-id="202" style="border:1px solid var(--teal-mid);color:var(--teal-mid);padding:8px 18px;border-radius:50px;font-size:13px;">Delegation opacity</span>
+        <span data-id="203" style="border:1px solid var(--teal-mid);color:var(--teal-mid);padding:8px 18px;border-radius:50px;font-size:13px;">Human reconciliation burden</span>
+      </div>
+      <p data-id="204" style="font-style:italic;font-size:14px;color:var(--muted);">Diagnosis must connect business pain to structural failure modes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE SOLUTION -->
+<section data-id="205" id="solution" class="section-pad" style="background:var(--white);">
+  <div data-id="206" class="container-main">
+    <div data-id="207" class="reveal">
+      <p data-id="208" class="micro-label" style="color:var(--teal);">THE SOVEREIGNTY PLATFORM</p>
+      <h2 data-id="209" style="font-size:42px;color:var(--charcoal);margin-bottom:16px;" id="solution-heading-s9t0">A Living Intelligence Layer for Provider Networks.</h2>
+      <p data-id="210" style="font-size:17px;color:var(--muted);max-width:680px;line-height:1.7;margin-bottom:40px;">Sovereignty HealthTech™ replaces static data workflows with a continuously updated, AI-augmented intelligence infrastructure — transforming provider network management from a cost center into a strategic asset.</p>
+    </div>
+    <div data-id="211" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;" class="reveal">
+      <div data-id="212" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;border-radius:8px;">
+        <svg data-id="213" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:16px;"><path data-id="214" d="M2 12h2l3-9 4 18 3-9h2"/><circle data-id="215" cx="20" cy="12" r="2"/></svg>
+        <h3 data-id="216" style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--charcoal);margin-bottom:8px;">Real-Time Provider Directory Engine</h3>
+        <p data-id="217" style="font-size:15px;color:var(--muted);line-height:1.6;">Continuously validated directory data with 99%+ accuracy SLA — integrating with CAQH, NPI, state licensure, and proprietary verification sources.</p>
+      </div>
+      <div data-id="218" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;border-radius:8px;">
+        <svg data-id="219" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:16px;"><rect data-id="220" x="2" y="4" width="20" height="16" rx="2"/><path data-id="221" d="M9 12l2 2 4-4"/><path data-id="222" d="M7 2v4M17 2v4"/></svg>
+        <h3 data-id="223" style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--charcoal);margin-bottom:8px;">AI-Augmented Credentialing</h3>
+        <p data-id="224" style="font-size:15px;color:var(--muted);line-height:1.6;">Machine-learning workflows reduce credentialing cycle time by 60%, with automated primary source verification and exception flagging.</p>
+      </div>
+      <div data-id="225" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;border-radius:8px;">
+        <svg data-id="226" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:16px;"><circle data-id="227" cx="12" cy="12" r="10"/><circle data-id="228" cx="12" cy="12" r="6"/><circle data-id="229" cx="12" cy="12" r="2"/><line data-id="230" x1="12" y1="2" x2="12" y2="6"/><line data-id="231" x1="12" y1="18" x2="12" y2="22"/></svg>
+        <h3 data-id="232" style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--charcoal);margin-bottom:8px;">Regulatory Intelligence Monitor</h3>
+        <p data-id="233" style="font-size:15px;color:var(--muted);line-height:1.6;">Live monitoring of CMS, NCQA, and state regulatory changes — with impact scoring and automated compliance workflow triggers.</p>
+      </div>
+      <div data-id="234" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;border-radius:8px;">
+        <svg data-id="235" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:16px;"><circle data-id="236" cx="12" cy="12" r="10"/><line data-id="237" x1="2" y1="12" x2="22" y2="12"/><path data-id="238" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <h3 data-id="239" style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--charcoal);margin-bottom:8px;">Network Adequacy Analytics</h3>
+        <p data-id="240" style="font-size:15px;color:var(--muted);line-height:1.6;">Geospatial analysis of specialty distribution, access-to-care gaps, and competitive network benchmarking — all in real time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC TOOLS -->
+<section data-id="241" id="diagnostics" class="section-pad" style="background:var(--ice);">
+  <div data-id="242" class="container-main">
+    <div data-id="243" class="reveal">
+      <p data-id="244" class="micro-label" style="color:var(--teal);">DIAGNOSTIC TOOLS</p>
+      <h2 data-id="245" style="font-size:42px;color:var(--charcoal);margin-bottom:16px;" id="diag-heading-u1v2">Two Integrated Diagnostics. One Operating Truth.</h2>
+      <p data-id="246" style="font-size:17px;color:var(--muted);max-width:680px;line-height:1.7;margin-bottom:32px;">Provider Data Health Check™ identifies provider-data risk; Systems MRI™ explains why that risk exists and how to remediate the operating system that produces it.</p>
+    </div>
+    <div data-id="247" class="reveal">
+      <div data-id="248" style="display:flex;gap:0;margin-bottom:0;">
+        <button data-id="249" class="tab-btn-sht active" id="tab-btn-hc-w3x4" data-tab="hc">Provider Data Health Check™</button>
+        <button data-id="250" class="tab-btn-sht" id="tab-btn-mri-y5z6" data-tab="mri">Systems MRI™</button>
+      </div>
+      <!-- TAB HC -->
+      <div data-id="251" id="tab-hc" class="card-shadow" style="padding:40px;border-radius:0 8px 8px 8px;">
+        <h3 data-id="252" style="font-family:'Inter',sans-serif;font-weight:600;font-size:20px;margin-bottom:8px;">Quantifying Provider Data Risk Across Five Domains.</h3>
+        <p data-id="253" style="font-size:15px;color:var(--muted);margin-bottom:28px;">A rapid, evidence-based assessment of provider truth integrity.</p>
+        <div data-id="254" id="score-bars-container-a7b8">
+          <div data-id="255" style="margin-bottom:20px;">
+            <div data-id="256" style="display:flex;justify-content:space-between;"><span data-id="257" style="font-weight:600;font-size:14px;">Provider Attribute Integrity</span><span data-id="258" style="font-weight:700;font-size:14px;color:var(--teal);">72%</span></div>
+            <div data-id="259" class="score-bar-track"><div data-id="260" class="score-bar-fill" data-width="72" style="background:var(--teal);"></div></div>
+          </div>
+          <div data-id="261" style="margin-bottom:20px;">
+            <div data-id="262" style="display:flex;justify-content:space-between;"><span data-id="263" style="font-weight:600;font-size:14px;">Location Truth & Safety</span><span data-id="264" style="font-weight:700;font-size:14px;color:var(--amber);">61%</span></div>
+            <div data-id="265" class="score-bar-track"><div data-id="266" class="score-bar-fill" data-width="61" style="background:var(--amber);"></div></div>
+          </div>
+          <div data-id="267" style="margin-bottom:20px;">
+            <div data-id="268" style="display:flex;justify-content:space-between;"><span data-id="269" style="font-weight:600;font-size:14px;">Affiliation Integrity Engine™</span><span data-id="270" style="font-weight:700;font-size:14px;color:var(--rose);">44%</span></div>
+            <div data-id="271" class="score-bar-track"><div data-id="272" class="score-bar-fill" data-width="44" style="background:var(--rose);"></div></div>
+          </div>
+          <div data-id="273" style="margin-bottom:20px;">
+            <div data-id="274" style="display:flex;justify-content:space-between;"><span data-id="275" style="font-weight:600;font-size:14px;">Credentialing & Clinical Role</span><span data-id="276" style="font-weight:700;font-size:14px;color:var(--amber);">61%</span></div>
+            <div data-id="277" class="score-bar-track"><div data-id="278" class="score-bar-fill" data-width="61" style="background:var(--amber);"></div></div>
+          </div>
+          <div data-id="279" style="margin-bottom:20px;">
+            <div data-id="280" style="display:flex;justify-content:space-between;"><span data-id="281" style="font-weight:600;font-size:14px;">Delegation Integrity Model™</span><span data-id="282" style="font-weight:700;font-size:14px;color:var(--rose);">38%</span></div>
+            <div data-id="283" class="score-bar-track"><div data-id="284" class="score-bar-fill" data-width="38" style="background:var(--rose);"></div></div>
+          </div>
+        </div>
+        <div data-id="285" style="background:var(--teal-light);border-left:4px solid var(--teal);padding:20px;border-radius:0 8px 8px 0;margin-top:16px;">
+          <p data-id="286" style="font-size:14px;color:var(--charcoal);font-weight:500;">Result: Risk is translated into leadership-visible decisions — not just defect lists.</p>
+        </div>
+      </div>
+      <!-- TAB MRI -->
+      <div data-id="287" id="tab-mri" class="card-shadow" style="padding:40px;border-radius:0 8px 8px 8px;display:none;">
+        <h3 data-id="288" style="font-family:'Inter',sans-serif;font-weight:600;font-size:20px;margin-bottom:8px;">Mapping the Operating System That Produces the Defects.</h3>
+        <p data-id="289" style="font-size:15px;color:var(--muted);margin-bottom:28px;">The MRI lens moves beyond symptoms and maps the hidden architecture across five integrity layers.</p>
+        <div data-id="290" style="border-radius:8px;overflow:hidden;margin-bottom:24px;">
+          <div data-id="291" class="layer-band" style="background:#EDF7F7;">
+            <div data-id="292" class="layer-badge" style="background:#81C9C8;color:var(--charcoal);">5</div>
+            <div data-id="293"><span data-id="294" style="font-weight:700;color:var(--teal);font-size:15px;">Human System Integrity™</span><br data-id="295"/><span data-id="296" style="font-size:13px;color:var(--muted);">Workforce friction, escalation dependency, invisible reconciliation labor</span></div>
+          </div>
+          <div data-id="297" class="layer-band" style="background:#C5E4E3;">
+            <div data-id="298" class="layer-badge" style="background:var(--teal-mid);color:var(--white);">4</div>
+            <div data-id="299"><span data-id="300" style="font-weight:700;color:#0B6B69;font-size:15px;">Delegation & Ecosystem Integrity</span><br data-id="301"/><span data-id="302" style="font-size:13px;color:var(--slate);">Delegated entity accountability, roster evidence, IPA/ACO maturity</span></div>
+          </div>
+          <div data-id="303" class="layer-band" style="background:var(--teal-mid);">
+            <div data-id="304" class="layer-badge" style="background:#0E8C8A;color:var(--white);">3</div>
+            <div data-id="305"><span data-id="306" style="font-weight:700;color:var(--white);font-size:15px;">Governance & Compliance Integrity</span><br data-id="307"/><span data-id="308" style="font-size:13px;color:rgba(255,255,255,0.85);">Control design, audit trail, reporting readiness, ownership</span></div>
+          </div>
+          <div data-id="309" class="layer-band" style="background:#0E8C8A;">
+            <div data-id="310" class="layer-badge" style="background:#0B7876;color:var(--white);">2</div>
+            <div data-id="311"><span data-id="312" style="font-weight:700;color:var(--white);font-size:15px;">Operational Workflow Integrity</span><br data-id="313"/><span data-id="314" style="font-size:13px;color:rgba(255,255,255,0.85);">Intake, triage, assignment, quality checks, exception management</span></div>
+          </div>
+          <div data-id="315" class="layer-band" style="background:var(--teal);">
+            <div data-id="316" class="layer-badge" style="background:var(--teal-deep);color:var(--white);">1</div>
+            <div data-id="317"><span data-id="318" style="font-weight:700;color:var(--white);font-size:15px;">Provider Identity Integrity</span><br data-id="319"/><span data-id="320" style="font-size:13px;color:rgba(255,255,255,0.85);">Golden record rules, NPI/TIN/contract/taxonomy alignment</span></div>
+          </div>
+        </div>
+        <div data-id="321" style="background:var(--charcoal);padding:24px;border-radius:8px;">
+          <p data-id="322" style="color:var(--white);font-weight:600;font-size:14px;margin-bottom:12px;">Systems MRI™ Produces 5 Outputs</p>
+          <div data-id="323" style="display:flex;flex-wrap:wrap;gap:16px;">
+            <div data-id="324" style="display:flex;align-items:center;gap:8px;"><span data-id="325" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">01</span><span data-id="326" style="color:var(--white);font-size:13px;">Root-cause map</span></div>
+            <div data-id="327" style="display:flex;align-items:center;gap:8px;"><span data-id="328" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">02</span><span data-id="329" style="color:var(--white);font-size:13px;">Control gap register</span></div>
+            <div data-id="330" style="display:flex;align-items:center;gap:8px;"><span data-id="331" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">03</span><span data-id="332" style="color:var(--white);font-size:13px;">Human load hotspots</span></div>
+            <div data-id="333" style="display:flex;align-items:center;gap:8px;"><span data-id="334" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">04</span><span data-id="335" style="color:var(--white);font-size:13px;">System/data flow breaks</span></div>
+            <div data-id="336" style="display:flex;align-items:center;gap:8px;"><span data-id="337" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">05</span><span data-id="338" style="color:var(--white);font-size:13px;">Decision-ready remediation roadmap</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH CHECK ENGAGEMENT MODEL -->
+<section data-id="339" id="engagement" class="section-pad" style="background:var(--white);">
+  <div data-id="340" class="container-main">
+    <div data-id="341" class="reveal">
+      <p data-id="342" class="micro-label" style="color:var(--teal);">ENGAGEMENT MODEL</p>
+      <h2 data-id="343" style="font-size:42px;color:var(--charcoal);margin-bottom:16px;" id="engage-heading-c9d0">See Where Provider Data Risk Is Hiding.</h2>
+      <p data-id="344" style="font-size:16px;color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:48px;">The Provider Data Health Check™ creates a practical starting point for identifying where provider data fragmentation may be creating operational, compliance, directory, delegation, or automation risk.</p>
+    </div>
+    <div data-id="345" class="reveal" style="position:relative;margin-top:48px;">
+      <div data-id="346" class="step-line" style="display:block;"></div>
+      <div data-id="347" class="step-card-wrap">
+        <div data-id="348" class="step-circle">1</div>
+        <div data-id="349" class="card-shadow" style="padding:28px;flex:1;">
+          <h3 data-id="350" style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--charcoal);margin-bottom:8px;">Submit Intake</h3>
+          <p data-id="351" style="font-size:14px;color:var(--muted);line-height:1.7;">Share the provider data concerns, workflows, or risk areas you want reviewed. There is no minimum scope — a single concern is a valid starting point.</p>
+        </div>
+      </div>
+      <div data-id="352" class="step-card-wrap">
+        <div data-id="353" class="step-circle">2</div>
+        <div data-id="354" class="card-shadow" style="padding:28px;flex:1;">
+          <h3 data-id="355" style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--charcoal);margin-bottom:8px;">Review & Triage</h3>
+          <p data-id="356" style="font-size:14px;color:var(--muted);line-height:1.7;">Sovereignty HealthTech™ reviews your submission to understand your organization type, risk signals, and the most likely areas of provider data fragmentation.</p>
+        </div>
+      </div>
+      <div data-id="357" class="step-card-wrap">
+        <div data-id="358" class="step-circle">3</div>
+        <div data-id="359" class="card-shadow" style="padding:28px;flex:1;">
+          <h3 data-id="360" style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--charcoal);margin-bottom:8px;">Health Check Conversation</h3>
+          <p data-id="361" style="font-size:14px;color:var(--muted);line-height:1.7;">A focused diagnostic discussion explores provider identity, location, affiliation, credentialing, delegation, roster operations, and evidence gaps — guided by your operational reality.</p>
+        </div>
+      </div>
+      <div data-id="362" class="step-card-wrap">
+        <div data-id="363" class="step-circle">4</div>
+        <div data-id="364" class="card-shadow" style="padding:28px;flex:1;">
+          <h3 data-id="365" style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;color:var(--charcoal);margin-bottom:8px;">Executive Next Step</h3>
+          <p data-id="366" style="font-size:14px;color:var(--muted);line-height:1.7;">You receive a concise summary of 3 risks, 3 opportunities, and 1 recommended next step — clear enough to act on, specific enough to brief leadership.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Quote bar -->
+    <div data-id="367" class="reveal" style="background:var(--charcoal);padding:48px;text-align:center;margin-top:48px;border-radius:8px;">
+      <p data-id="368" style="font-family:'Playfair Display',serif;font-style:italic;color:var(--white);font-size:19px;max-width:680px;margin:0 auto 12px;">"The goal is not to create a longer defect list. The goal is to identify where provider data truth is breaking — and where to focus first."</p>
+      <p data-id="369" style="font-size:12px;color:var(--teal-mid);">— Sovereignty HealthTech™</p>
+    </div>
+    <!-- Output card -->
+    <div data-id="370" class="reveal card-shadow" style="max-width:640px;margin:48px auto;border-top:4px solid var(--teal);padding:36px;">
+      <h3 data-id="371" style="font-family:'Playfair Display',serif;font-size:22px;color:var(--charcoal);margin-bottom:20px;">Provider Data Health Check™ — Summary Output</h3>
+      <div data-id="372" style="margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;"><span data-id="373" style="color:var(--teal);font-size:16px;line-height:1.5;">●</span><p data-id="374" style="font-size:14px;color:var(--slate);line-height:1.7;"><strong data-id="375">3 Risks Identified</strong> — The highest-priority areas where provider data fragmentation is creating operational, compliance, or financial exposure.</p></div>
+      <div data-id="376" style="margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;"><span data-id="377" style="color:var(--teal);font-size:16px;line-height:1.5;">●</span><p data-id="378" style="font-size:14px;color:var(--slate);line-height:1.7;"><strong data-id="379">3 Opportunities Surfaced</strong> — Where targeted improvement would most meaningfully reduce risk or restore operational truth.</p></div>
+      <div data-id="380" style="margin-bottom:16px;display:flex;gap:10px;align-items:flex-start;"><span data-id="381" style="color:var(--teal);font-size:16px;line-height:1.5;">●</span><p data-id="382" style="font-size:14px;color:var(--slate);line-height:1.7;"><strong data-id="383">1 Recommended Next Step</strong> — A clear, concrete action that defines where to focus first.</p></div>
+      <hr data-id="384" style="border:none;border-top:1px solid #E2E8F0;margin:16px 0;"/>
+      <p data-id="385" style="font-style:italic;font-size:13px;color:var(--muted);">If the Health Check reveals deeper structural complexity, Sovereignty HealthTech™ will recommend whether a Systems MRI™ diagnostic is the appropriate next step.</p>
+    </div>
+    <!-- CTA nudge -->
+    <div data-id="386" class="reveal" style="background:var(--teal-light);padding:48px;text-align:center;border-radius:8px;">
+      <p data-id="387" style="font-weight:500;font-size:16px;color:var(--charcoal);margin-bottom:20px;">Ready to see where your provider data risk is hiding?</p>
+      <a data-id="388" href="#contact" style="display:inline-block;background:var(--teal);color:var(--white);padding:14px 28px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;">Request a Provider Data Health Check</a>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS MRI™ -->
+<section data-id="389" id="systems-mri">
+  <!-- Part A: Bridge -->
+  <div data-id="390" style="background:var(--charcoal);padding:80px 60px;" class="section-pad">
+    <div data-id="391" class="container-main">
+      <div data-id="392" class="reveal" style="display:flex;gap:48px;flex-wrap:wrap;align-items:center;">
+        <div data-id="393" style="flex:1;min-width:300px;">
+          <p data-id="394" class="micro-label" style="color:#81C9C8;">WHEN THE HEALTH CHECK REVEALS DEEPER COMPLEXITY</p>
+          <h2 data-id="395" style="font-family:'Playfair Display',serif;font-size:40px;color:var(--white);margin-bottom:16px;line-height:1.2;">The Health Check Tells You What Is Breaking. Systems MRI™ Tells You Why.</h2>
+          <p data-id="396" style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:24px;">Visible defects are rarely the root problem. They are signals that identity, workflow, governance, technology, delegation, and human capacity are no longer operating as one system.</p>
+          <hr data-id="397" style="border:none;border-top:2px solid var(--teal);width:60px;margin:24px 0;"/>
+          <p data-id="398" style="font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(255,255,255,0.85);line-height:1.6;">"The winning move is not more cleanup. It is a diagnostic operating model that makes provider truth visible, governed, measurable, and scalable."</p>
+        </div>
+        <div data-id="399" style="flex:0 0 320px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <div data-id="400" style="border:2px solid var(--teal-mid);background:rgba(26,158,156,0.12);padding:24px;border-radius:8px;text-align:center;width:100%;">
+            <svg data-id="401" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal-mid)" stroke-width="2"><circle data-id="402" cx="11" cy="11" r="8"/><line data-id="403" x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p data-id="404" style="color:var(--white);font-weight:700;font-size:15px;margin-top:8px;">Provider Data Health Check™</p>
+            <p data-id="405" style="color:var(--teal-mid);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;">WHAT IS BREAKING?</p>
+          </div>
+          <span data-id="406" style="color:var(--white);font-weight:700;font-size:28px;">→</span>
+          <div data-id="407" style="border:2px solid var(--gold);background:rgba(201,168,76,0.12);padding:24px;border-radius:8px;text-align:center;width:100%;">
+            <svg data-id="408" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect data-id="409" x="2" y="4" width="20" height="4" rx="1"/><rect data-id="410" x="2" y="10" width="20" height="4" rx="1"/><rect data-id="411" x="2" y="16" width="20" height="4" rx="1"/></svg>
+            <p data-id="412" style="color:var(--white);font-weight:700;font-size:15px;margin-top:8px;">Systems MRI™</p>
+            <p data-id="413" style="color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;">WHY IS IT BREAKING?</p>
+          </div>
+          <div data-id="414" style="border:1px solid var(--gold);padding:10px 20px;border-radius:50px;"><span data-id="415" style="color:var(--gold);font-size:13px;">Operational Integrity Blueprint</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part B: L1-L5 -->
+  <div data-id="416" style="background:var(--ice);padding:80px 0;">
+    <div data-id="417" class="container-main">
+      <div data-id="418" class="reveal">
+        <p data-id="419" class="micro-label" style="color:var(--teal);">DIAGNOSTIC MODEL</p>
+        <h2 data-id="420" style="font-size:40px;color:var(--charcoal);margin-bottom:16px;">Mapping the Operating System That Produces the Defects.</h2>
+        <p data-id="421" style="font-size:16px;color:var(--muted);max-width:640px;line-height:1.7;margin-bottom:32px;">Five integrity layers reveal where the real operating failures are hiding.</p>
+      </div>
+    </div>
+    <div data-id="422" class="reveal" style="max-width:1200px;margin:0 auto;border-radius:8px;overflow:hidden;">
+      <div data-id="423" class="layer-band" style="background:#EDF7F7;"><div data-id="424" class="layer-badge" style="background:#81C9C8;color:var(--charcoal);">5</div><div data-id="425" style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><span data-id="426" style="font-weight:700;font-size:16px;color:var(--teal);">Human System Integrity™</span><span data-id="427" style="font-size:14px;color:var(--slate);opacity:0.85;">Workforce friction, escalation dependency, invisible reconciliation labor</span></div></div>
+      <div data-id="428" class="layer-band" style="background:#C5E4E3;"><div data-id="429" class="layer-badge" style="background:var(--teal-mid);color:var(--white);">4</div><div data-id="430" style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><span data-id="431" style="font-weight:700;font-size:16px;color:#0B6B69;">Delegation & Ecosystem Integrity</span><span data-id="432" style="font-size:14px;color:var(--slate);opacity:0.85;">Delegated entity accountability, roster evidence, IPA/ACO maturity</span></div></div>
+      <div data-id="433" class="layer-band" style="background:var(--teal-mid);"><div data-id="434" class="layer-badge" style="background:#0E8C8A;color:var(--white);">3</div><div data-id="435" style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><span data-id="436" style="font-weight:700;font-size:16px;color:var(--white);">Governance & Compliance Integrity</span><span data-id="437" style="font-size:14px;color:rgba(255,255,255,0.85);">Control design, audit trail, reporting readiness, ownership</span></div></div>
+      <div data-id="438" class="layer-band" style="background:#0E8C8A;"><div data-id="439" class="layer-badge" style="background:#0B7876;color:var(--white);">2</div><div data-id="440" style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><span data-id="441" style="font-weight:700;font-size:16px;color:var(--white);">Operational Workflow Integrity</span><span data-id="442" style="font-size:14px;color:rgba(255,255,255,0.85);">Intake, triage, assignment, quality checks, exception management</span></div></div>
+      <div data-id="443" class="layer-band" style="background:var(--teal);"><div data-id="444" class="layer-badge" style="background:var(--teal-deep);color:var(--white);">1</div><div data-id="445" style="flex:1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;"><span data-id="446" style="font-weight:700;font-size:16px;color:var(--white);">Provider Identity Integrity</span><span data-id="447" style="font-size:14px;color:rgba(255,255,255,0.85);">Golden record rules, NPI/TIN/contract/taxonomy alignment</span></div></div>
+    </div>
+    <div data-id="448" class="container-main" style="margin-top:24px;">
+      <div data-id="449" style="background:var(--charcoal);padding:32px;border-radius:8px;">
+        <div data-id="450" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+          <div data-id="451" style="display:flex;align-items:center;gap:8px;"><span data-id="452" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">01</span><span data-id="453" style="color:var(--white);font-size:13px;">Root-cause map</span></div>
+          <div data-id="454" style="display:flex;align-items:center;gap:8px;"><span data-id="455" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">02</span><span data-id="456" style="color:var(--white);font-size:13px;">Control gap register</span></div>
+          <div data-id="457" style="display:flex;align-items:center;gap:8px;"><span data-id="458" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">03</span><span data-id="459" style="color:var(--white);font-size:13px;">Human load hotspots</span></div>
+          <div data-id="460" style="display:flex;align-items:center;gap:8px;"><span data-id="461" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">04</span><span data-id="462" style="color:var(--white);font-size:13px;">System/data flow breaks</span></div>
+          <div data-id="463" style="display:flex;align-items:center;gap:8px;"><span data-id="464" style="background:var(--gold);color:var(--white);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">05</span><span data-id="465" style="color:var(--white);font-size:13px;">Decision-ready remediation roadmap</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part C: Sprint -->
+  <div data-id="466" style="background:var(--white);padding:80px 0;">
+    <div data-id="467" class="container-main">
+      <div data-id="468" class="reveal">
+        <p data-id="469" class="micro-label" style="color:var(--teal);">ENGAGEMENT SPRINT</p>
+        <h2 data-id="470" style="font-size:40px;color:var(--charcoal);margin-bottom:32px;">A Focused 4–6 Week Diagnostic Sprint.</h2>
+      </div>
+      <div data-id="471" class="reveal" style="display:flex;gap:16px;flex-wrap:wrap;">
+        <div data-id="472" class="card-shadow" style="border-top:3px solid var(--teal);padding:28px;border-radius:8px;flex:1;min-width:220px;">
+          <span data-id="473" style="display:inline-block;background:var(--teal-light);color:var(--teal);border-radius:50px;font-size:12px;padding:4px 12px;margin-bottom:12px;">Wk 0–1</span>
+          <h4 data-id="474" style="font-family:'Inter',sans-serif;font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">Mobilize</h4>
+          <p data-id="475" style="font-size:14px;color:var(--muted);line-height:1.6;">Confirm scope, systems, stakeholder map, data inputs</p>
+        </div>
+        <div data-id="476" class="card-shadow" style="border-top:3px solid var(--teal);padding:28px;border-radius:8px;flex:1;min-width:220px;">
+          <span data-id="477" style="display:inline-block;background:var(--teal-light);color:var(--teal);border-radius:50px;font-size:12px;padding:4px 12px;margin-bottom:12px;">Wk 1–3</span>
+          <h4 data-id="478" style="font-family:'Inter',sans-serif;font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">Diagnose</h4>
+          <p data-id="479" style="font-size:14px;color:var(--muted);line-height:1.6;">Analyze identity, workflow, governance, delegation, and human load</p>
+        </div>
+        <div data-id="480" class="card-shadow" style="border-top:3px solid var(--teal);padding:28px;border-radius:8px;flex:1;min-width:220px;">
+          <span data-id="481" style="display:inline-block;background:var(--teal-light);color:var(--teal);border-radius:50px;font-size:12px;padding:4px 12px;margin-bottom:12px;">Wk 3–4</span>
+          <h4 data-id="482" style="font-family:'Inter',sans-serif;font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">Synthesize</h4>
+          <p data-id="483" style="font-size:14px;color:var(--muted);line-height:1.6;">Build scorecards, heat map, root-cause map, control gap register</p>
+        </div>
+        <div data-id="484" class="card-shadow" style="border-top:3px solid var(--teal);padding:28px;border-radius:8px;flex:1;min-width:220px;">
+          <span data-id="485" style="display:inline-block;background:var(--teal-light);color:var(--teal);border-radius:50px;font-size:12px;padding:4px 12px;margin-bottom:12px;">Wk 4–6</span>
+          <h4 data-id="486" style="font-family:'Inter',sans-serif;font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">Decide</h4>
+          <p data-id="487" style="font-size:14px;color:var(--muted);line-height:1.6;">Executive readout, risk-ranked roadmap, operating model recommendations</p>
+        </div>
+      </div>
+      <div data-id="488" class="reveal" style="background:var(--teal);padding:48px;text-align:center;margin-top:40px;border-radius:8px;">
+        <p data-id="489" style="font-family:'Playfair Display',serif;font-style:italic;color:var(--white);font-size:18px;max-width:700px;margin:0 auto 8px;">"Every finding must trace to evidence. Every risk must map to a root cause. Every recommendation must define an owner, a control, and a measurable outcome."</p>
+        <p data-id="490" style="font-size:12px;color:#81C9C8;">— Sovereignty HealthTech™ Engagement Standard</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part D: Heat Map -->
+  <div data-id="491" style="background:var(--ice);padding:80px 0;">
+    <div data-id="492" class="container-main">
+      <div data-id="493" class="reveal">
+        <p data-id="494" class="micro-label" style="color:var(--teal);">RISK PRIORITIZATION</p>
+        <h2 data-id="495" style="font-size:40px;color:var(--charcoal);margin-bottom:16px;">Leadership Needs a Risk-Ranked View. Not a Longer Defect List.</h2>
+      </div>
+      <div data-id="496" class="reveal">
+        <div data-id="497" class="bubble-chart" id="bubble-chart-e1f2">
+          <span data-id="498" style="position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--muted);">Remediation Complexity →</span>
+          <span data-id="499" style="position:absolute;left:-80px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:11px;color:var(--muted);white-space:nowrap;">Business Impact ↑</span>
+          <div data-id="500" class="bubble" style="top:8%;left:70%;background:var(--rose);animation:pulse-bubble 3s ease-in-out infinite;animation-delay:0s;">Delegation drift</div>
+          <div data-id="501" class="bubble" style="top:14%;left:46%;background:var(--rose);animation:pulse-bubble 3s ease-in-out infinite;animation-delay:0.5s;">Contract / TIN</div>
+          <div data-id="502" class="bubble" style="top:22%;left:18%;background:var(--amber);animation:pulse-bubble 3s ease-in-out infinite;animation-delay:1s;">Evidence gaps</div>
+          <div data-id="503" class="bubble" style="top:44%;left:42%;background:var(--amber);animation:pulse-bubble 3s ease-in-out infinite;animation-delay:1.5s;">Manual rework</div>
+          <div data-id="504" class="bubble" style="top:62%;left:38%;background:var(--green);animation:pulse-bubble 3s ease-in-out infinite;animation-delay:2s;">Location defects</div>
+          <div data-id="505" class="bubble" style="top:68%;left:12%;background:var(--green);animation:pulse-bubble 3s ease-in-out infinite;animation-delay:2.5s;">Taxonomy drift</div>
+        </div>
+        <div data-id="506" style="display:flex;gap:16px;margin-top:48px;flex-wrap:wrap;">
+          <div data-id="507" class="card-shadow" style="flex:1;min-width:200px;padding:20px;border-left:4px solid var(--rose);">
+            <p data-id="508" style="font-size:14px;color:var(--charcoal);"><strong data-id="509">🔴 Immediate Executive Intervention</strong> — High risk; requires control redesign</p>
+          </div>
+          <div data-id="510" class="card-shadow" style="flex:1;min-width:200px;padding:20px;border-left:4px solid var(--amber);">
+            <p data-id="511" style="font-size:14px;color:var(--charcoal);"><strong data-id="512">🟡 Managed Remediation Sprint</strong> — Material risk; targeted governance</p>
+          </div>
+          <div data-id="513" class="card-shadow" style="flex:1;min-width:200px;padding:20px;border-left:4px solid var(--green);">
+            <p data-id="514" style="font-size:14px;color:var(--charcoal);"><strong data-id="515">🟢 Standardize and Automate</strong> — Lower complexity; automation candidates</p>
+          </div>
+        </div>
+        <p data-id="516" style="font-style:italic;font-size:13px;color:var(--muted);text-align:center;margin-top:16px;">Illustrative example — final scoring calibrated during diagnostic.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part E: Value Case -->
+  <div data-id="517" style="background:var(--charcoal);padding:80px 0;">
+    <div data-id="518" class="container-main">
+      <div data-id="519" class="reveal">
+        <p data-id="520" class="micro-label" style="color:#81C9C8;">VALUE CASE</p>
+        <h2 data-id="521" style="font-family:'Playfair Display',serif;font-size:40px;color:var(--white);margin-bottom:24px;">Value Comes From Reducing Defect Recurrence — Not Only Correcting Defects.</h2>
+        <div data-id="522" style="border:1px solid var(--teal-mid);background:rgba(26,158,156,0.1);padding:20px 32px;border-radius:8px;max-width:620px;margin:0 auto 40px;">
+          <p data-id="523" style="font-family:'Playfair Display',serif;font-style:italic;color:var(--white);font-size:16px;text-align:center;">"When provider truth becomes governed infrastructure, every downstream process becomes less expensive, less risky, and more automatable."</p>
+        </div>
+      </div>
+      <div data-id="524" class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
+        <div data-id="525" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="526" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">01</span>
+          <h4 data-id="527" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Defect recurrence ↓</h4>
+          <p data-id="528" style="font-size:14px;color:rgba(255,255,255,0.7);">Fewer repeat corrections and escalations</p>
+        </div>
+        <div data-id="529" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="530" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">02</span>
+          <h4 data-id="531" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Manual rework ↓</h4>
+          <p data-id="532" style="font-size:14px;color:rgba(255,255,255,0.7);">Less reconciliation labor and shadow tracking</p>
+        </div>
+        <div data-id="533" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="534" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">03</span>
+          <h4 data-id="535" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Audit readiness ↑</h4>
+          <p data-id="536" style="font-size:14px;color:rgba(255,255,255,0.7);">Evidence chain and control maturity improve</p>
+        </div>
+        <div data-id="537" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="538" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">04</span>
+          <h4 data-id="539" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Payment alignment ↑</h4>
+          <p data-id="540" style="font-size:14px;color:rgba(255,255,255,0.7);">Better link between identity and contract economics</p>
+        </div>
+        <div data-id="541" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="542" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">05</span>
+          <h4 data-id="543" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Automation readiness ↑</h4>
+          <p data-id="544" style="font-size:14px;color:rgba(255,255,255,0.7);">Stable rules enable scalable workflows</p>
+        </div>
+        <div data-id="545" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="546" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">06</span>
+          <h4 data-id="547" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Lower operational cost</h4>
+          <p data-id="548" style="font-size:14px;color:rgba(255,255,255,0.7);">Fewer touches per roster; fewer late-stage corrections</p>
+        </div>
+        <div data-id="549" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="550" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">07</span>
+          <h4 data-id="551" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Lower regulatory exposure</h4>
+          <p data-id="552" style="font-size:14px;color:rgba(255,255,255,0.7);">Stronger defensibility for directory and CMS reporting</p>
+        </div>
+        <div data-id="553" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="554" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">08</span>
+          <h4 data-id="555" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Higher provider/member trust</h4>
+          <p data-id="556" style="font-size:14px;color:rgba(255,255,255,0.7);">More reliable find-a-provider and network representation</p>
+        </div>
+        <div data-id="557" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+          <span data-id="558" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">09</span>
+          <h4 data-id="559" style="font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px;">Protected team capacity</h4>
+          <p data-id="560" style="font-size:14px;color:rgba(255,255,255,0.7);">Less burnout from invisible system reconciliation labor</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part F: Deliverables -->
+  <div data-id="561" style="background:var(--ice);padding:80px 0;">
+    <div data-id="562" class="container-main">
+      <div data-id="563" class="reveal">
+        <p data-id="564" class="micro-label" style="color:var(--teal);">FINAL DELIVERABLES</p>
+        <h2 data-id="565" style="font-size:40px;color:var(--charcoal);margin-bottom:32px;">What You Receive at Engagement Close.</h2>
+      </div>
+      <div data-id="566" class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
+        <div data-id="567" class="card-shadow" style="padding:28px;"><span data-id="568" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">01</span><h4 data-id="569" style="font-weight:700;font-size:16px;margin-bottom:6px;">Executive Readout Deck</h4><p data-id="570" style="font-size:14px;color:var(--muted);">Strategic narrative, findings, risks, recommendations, decision asks</p></div>
+        <div data-id="571" class="card-shadow" style="padding:28px;"><span data-id="572" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">02</span><h4 data-id="573" style="font-weight:700;font-size:16px;margin-bottom:6px;">Provider Truth Scorecards</h4><p data-id="574" style="font-size:14px;color:var(--muted);">Domain scores across identity, location, affiliation, credentialing, delegation</p></div>
+        <div data-id="575" class="card-shadow" style="padding:28px;"><span data-id="576" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">03</span><h4 data-id="577" style="font-weight:700;font-size:16px;margin-bottom:6px;">Risk Heat Map + Register</h4><p data-id="578" style="font-size:14px;color:var(--muted);">Prioritized risks by impact, complexity, control weakness, and owner</p></div>
+        <div data-id="579" class="card-shadow" style="padding:28px;"><span data-id="580" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">04</span><h4 data-id="581" style="font-weight:700;font-size:16px;margin-bottom:6px;">Systems MRI™ Root-Cause Map</h4><p data-id="582" style="font-size:14px;color:var(--muted);">Workflow, governance, system, delegation, and human-load failure points</p></div>
+        <div data-id="583" class="card-shadow" style="padding:28px;"><span data-id="584" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">05</span><h4 data-id="585" style="font-weight:700;font-size:16px;margin-bottom:6px;">90-Day Stabilization Roadmap</h4><p data-id="586" style="font-size:14px;color:var(--muted);">Sequenced remediation plan with controls, owners, metrics, and milestones</p></div>
+        <div data-id="587" class="card-shadow" style="padding:28px;"><span data-id="588" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--white);font-size:11px;font-weight:700;margin-bottom:12px;">06</span><h4 data-id="589" style="font-weight:700;font-size:16px;margin-bottom:6px;">Operating Model Blueprint</h4><p data-id="590" style="font-size:14px;color:var(--muted);">Governance forums, accountability model, quality gates, and evidence chain</p></div>
+      </div>
+      <div data-id="591" class="reveal" style="background:var(--charcoal);padding:36px;text-align:center;border-radius:8px;margin-top:32px;">
+        <p data-id="592" style="font-weight:600;font-size:15px;color:var(--white);">Where are we exposed? · Why is it happening? · What should we fix first? · How do we prevent recurrence?</p>
+      </div>
+      <!-- Implementation path -->
+      <div data-id="593" class="reveal" style="display:flex;align-items:center;justify-content:center;gap:0;margin-top:48px;flex-wrap:wrap;">
+        <div data-id="594" style="text-align:center;padding:0 20px;">
+          <div data-id="595" style="width:16px;height:16px;border-radius:50%;background:var(--teal);margin:0 auto 8px;"></div>
+          <p data-id="596" style="font-weight:700;font-size:14px;color:var(--charcoal);">0–30 days</p>
+          <p data-id="597" style="font-size:12px;color:var(--muted);">Stabilize</p>
+        </div>
+        <div data-id="598" style="width:40px;height:2px;background:var(--teal-mid);"></div>
+        <div data-id="599" style="text-align:center;padding:0 20px;">
+          <div data-id="600" style="width:16px;height:16px;border-radius:50%;background:var(--teal);margin:0 auto 8px;"></div>
+          <p data-id="601" style="font-weight:700;font-size:14px;color:var(--charcoal);">31–60 days</p>
+          <p data-id="602" style="font-size:12px;color:var(--muted);">Govern</p>
+        </div>
+        <div data-id="603" style="width:40px;height:2px;background:var(--teal-mid);"></div>
+        <div data-id="604" style="text-align:center;padding:0 20px;">
+          <div data-id="605" style="width:16px;height:16px;border-radius:50%;background:var(--teal);margin:0 auto 8px;"></div>
+          <p data-id="606" style="font-weight:700;font-size:14px;color:var(--charcoal);">61–90 days</p>
+          <p data-id="607" style="font-size:12px;color:var(--muted);">Standardize</p>
+        </div>
+        <div data-id="608" style="width:40px;height:2px;background:var(--teal-mid);"></div>
+        <div data-id="609" style="text-align:center;padding:0 20px;">
+          <div data-id="610" style="width:16px;height:16px;border-radius:50%;background:var(--teal);margin:0 auto 8px;"></div>
+          <p data-id="611" style="font-weight:700;font-size:14px;color:var(--charcoal);">90+ days</p>
+          <p data-id="612" style="font-size:12px;color:var(--muted);">Automate & Scale</p>
+        </div>
+      </div>
+      <p data-id="613" class="reveal" style="text-align:center;font-family:'Playfair Display',serif;font-style:italic;color:var(--teal-mid);font-size:16px;margin-top:32px;">"Provider data becomes an enterprise control system — not a perpetual cleanup function."</p>
+    </div>
+  </div>
+
+  <!-- Part G: CTA -->
+  <div data-id="614" style="background:var(--teal);padding:80px 40px;text-align:center;">
+    <div data-id="615" class="container-main reveal">
+      <p data-id="616" class="micro-label" style="color:rgba(255,255,255,0.7);">NEXT STEPS</p>
+      <h2 data-id="617" style="font-family:'Playfair Display',serif;font-size:38px;color:var(--white);margin-bottom:16px;">Start With the Health Check. Proceed to the MRI.</h2>
+      <p data-id="618" style="font-size:16px;color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto 32px;line-height:1.7;">Begin with a rapid assessment of where provider data truth is breaking, then deepen into the structural operating system if complexity warrants.</p>
+      <div data-id="619" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a data-id="620" href="#contact" style="background:var(--white);color:var(--teal);padding:14px 28px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;">Request a Provider Data Health Check</a>
+        <a data-id="621" href="#systems-mri" style="border:2px solid var(--white);color:var(--white);padding:14px 28px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;background:transparent;">Learn About Systems MRI™ Engagement</a>
+      </div>
+      <p data-id="622" style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:24px;">Sovereign confidentiality. Every finding traces to evidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT FRAMEWORK -->
+<section data-id="623" id="frameworks" class="section-pad" style="background:var(--ice);">
+  <div data-id="624" class="container-main">
+    <div data-id="625" class="reveal">
+      <p data-id="626" class="micro-label" style="color:var(--teal);">ENGAGEMENT FRAMEWORK</p>
+      <h2 data-id="627" style="font-size:42px;color:var(--charcoal);margin-bottom:16px;" id="fw-heading-g3h4">From Fragmented Data to Operational Truth.</h2>
+      <p data-id="628" style="font-size:17px;color:var(--muted);max-width:680px;line-height:1.7;">A sequenced advisory model — each stage builds on the last, moving your organization from risk exposure to governed, scalable provider data integrity.</p>
+    </div>
+    <div data-id="629" class="reveal" style="overflow-x:auto;">
+      <table data-id="630" class="fw-table">
+        <thead data-id="631"><tr data-id="632"><th data-id="633">Stage</th><th data-id="634">Offer / Action</th><th data-id="635">Buyer Problem Language</th><th data-id="636">Proof Point</th></tr></thead>
+        <tbody data-id="637">
+          <tr data-id="638" style="background:var(--white);border-left:4px solid #81C9C8;">
+            <td data-id="639" data-label="Stage"><div data-id="640" style="display:flex;align-items:center;gap:12px;"><span data-id="641" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal-mid),var(--teal));color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">1</span><span data-id="642" style="font-weight:700;">Attract</span></div></td>
+            <td data-id="643" data-label="Offer / Action" style="color:var(--teal);font-weight:600;">Thought leadership + referral conversations</td>
+            <td data-id="644" data-label="Buyer Problem Language"><em data-id="645" style="font-family:'Playfair Display',serif;color:var(--slate);">"Fragmented provider data; directory risk; audit stress; manual roster burden"</em></td>
+            <td data-id="646" data-label="Proof Point" style="color:var(--muted);">✓ Operational truth language ✓ Provider Data Integrity definition</td>
+          </tr>
+          <tr data-id="647" style="background:var(--teal-light);border-left:4px solid var(--teal-mid);">
+            <td data-id="648" data-label="Stage"><div data-id="649" style="display:flex;align-items:center;gap:12px;"><span data-id="650" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal-mid),var(--teal));color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">2</span><span data-id="651" style="font-weight:700;">Diagnose</span></div></td>
+            <td data-id="652" data-label="Offer / Action" style="color:var(--teal);font-weight:600;">Provider Data Health Check™</td>
+            <td data-id="653" data-label="Buyer Problem Language"><em data-id="654" style="font-family:'Playfair Display',serif;color:var(--slate);">"We need to know where our provider truth is breaking."</em></td>
+            <td data-id="655" data-label="Proof Point" style="color:var(--muted);">✓ 3 risks · 3 opportunities · 1 next step</td>
+          </tr>
+          <tr data-id="656" style="background:var(--white);border-left:4px solid #0E8C8A;">
+            <td data-id="657" data-label="Stage"><div data-id="658" style="display:flex;align-items:center;gap:12px;"><span data-id="659" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal-mid),var(--teal));color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">3</span><span data-id="660" style="font-weight:700;">Deepen</span></div></td>
+            <td data-id="661" data-label="Offer / Action" style="color:var(--teal);font-weight:600;">Systems MRI™ Diagnostic</td>
+            <td data-id="662" data-label="Buyer Problem Language"><em data-id="663" style="font-family:'Playfair Display',serif;color:var(--slate);">"We need an executive view of risk, workflow, and data integrity."</em></td>
+            <td data-id="664" data-label="Proof Point" style="color:var(--muted);">✓ Findings readout + roadmap</td>
+          </tr>
+          <tr data-id="665" style="background:var(--teal-light);border-left:4px solid #0B7876;">
+            <td data-id="666" data-label="Stage"><div data-id="667" style="display:flex;align-items:center;gap:12px;"><span data-id="668" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal-mid),var(--teal));color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">4</span><span data-id="669" style="font-weight:700;">Build</span></div></td>
+            <td data-id="670" data-label="Offer / Action" style="color:var(--teal);font-weight:600;">PNII™ Roadmap / SMART Roster vNext Implementation</td>
+            <td data-id="671" data-label="Buyer Problem Language"><em data-id="672" style="font-family:'Playfair Display',serif;color:var(--slate);">"We need a durable infrastructure, not another manual workaround."</em></td>
+            <td data-id="673" data-label="Proof Point" style="color:var(--muted);">✓ Identity Gate + staged validation + governance</td>
+          </tr>
+          <tr data-id="674" style="background:var(--white);border-left:4px solid var(--teal);">
+            <td data-id="675" data-label="Stage"><div data-id="676" style="display:flex;align-items:center;gap:12px;"><span data-id="677" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal-mid),var(--teal));color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">5</span><span data-id="678" style="font-weight:700;">Retain</span></div></td>
+            <td data-id="679" data-label="Offer / Action" style="color:var(--teal);font-weight:600;">Operational Truth Retainer</td>
+            <td data-id="680" data-label="Buyer Problem Language"><em data-id="681" style="font-family:'Playfair Display',serif;color:var(--slate);">"We need continuity, monitoring, and accountable controls."</em></td>
+            <td data-id="682" data-label="Proof Point" style="color:var(--muted);">✓ Monthly advisory + data integrity monitoring</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-id="683" class="reveal" style="background:var(--charcoal);padding:40px;text-align:center;margin-top:40px;border-radius:8px;">
+      <p data-id="684" style="font-family:'Playfair Display',serif;font-style:italic;color:var(--white);font-size:18px;max-width:700px;margin:0 auto 8px;">"Every finding traces to evidence. Every risk maps to a root cause. Every recommendation defines an owner, a control, and a measurable outcome."</p>
+      <p data-id="685" style="font-size:12px;color:var(--muted);">— Sovereignty HealthTech™ Engagement Standard</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPOSITION -->
+<section data-id="686" id="value" class="section-pad" style="background:var(--charcoal);">
+  <div data-id="687" class="container-main">
+    <div data-id="688" class="reveal">
+      <p data-id="689" class="micro-label" style="color:#81C9C8;">WHY SOVEREIGNTY</p>
+      <h2 data-id="690" style="font-family:'Playfair Display',serif;font-size:44px;color:var(--white);margin-bottom:16px;">Built for Organizations That Cannot Afford to Get Networks Wrong.</h2>
+      <p data-id="691" style="font-size:18px;color:rgba(255,255,255,0.7);max-width:680px;margin-bottom:48px;">We serve the decision-makers who carry regulatory liability, member outcomes, and network performance as their core mandate.</p>
+    </div>
+    <div data-id="692" class="reveal">
+      <div data-id="693" style="border-top:1px solid rgba(26,158,156,0.3);padding:36px 0;display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+        <span data-id="694" style="font-family:'Playfair Display',serif;font-size:52px;color:var(--gold);min-width:60px;">01</span>
+        <div data-id="695" style="flex:1;min-width:240px;">
+          <h3 data-id="696" style="font-weight:700;font-size:20px;color:var(--white);margin-bottom:8px;">Precision at Scale</h3>
+          <p data-id="697" style="font-size:15px;color:rgba(255,255,255,0.7);line-height:1.7;">From 500 to 500,000 providers — our infrastructure maintains accuracy without degradation, powered by automated enrichment pipelines and human-verified exception management.</p>
+        </div>
+      </div>
+      <div data-id="698" style="border-top:1px solid rgba(26,158,156,0.3);padding:36px 0;display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+        <span data-id="699" style="font-family:'Playfair Display',serif;font-size:52px;color:var(--gold);min-width:60px;">02</span>
+        <div data-id="700" style="flex:1;min-width:240px;">
+          <h3 data-id="701" style="font-weight:700;font-size:20px;color:var(--white);margin-bottom:8px;">Sovereignty of Data</h3>
+          <p data-id="702" style="font-size:15px;color:rgba(255,255,255,0.7);line-height:1.7;">Your network data remains yours. We provide the intelligence layer — not data brokerage. Full audit trails, SOC 2 Type II compliance, and HIPAA-aligned architecture.</p>
+        </div>
+      </div>
+      <div data-id="703" style="border-top:1px solid rgba(26,158,156,0.3);padding:36px 0;display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+        <span data-id="704" style="font-family:'Playfair Display',serif;font-size:52px;color:var(--gold);min-width:60px;">03</span>
+        <div data-id="705" style="flex:1;min-width:240px;">
+          <h3 data-id="706" style="font-weight:700;font-size:20px;color:var(--white);margin-bottom:8px;">Proactive vs. Reactive</h3>
+          <p data-id="707" style="font-size:15px;color:rgba(255,255,255,0.7);line-height:1.7;">Most tools tell you what broke. Sovereignty tells you what will break — 30, 60, 90 days ahead — with recommended network interventions pre-mapped.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section data-id="708" id="results" class="section-pad" style="background:var(--ice);">
+  <div data-id="709" class="container-main">
+    <div data-id="710" class="reveal">
+      <p data-id="711" class="micro-label" style="color:var(--teal);">MEASURED OUTCOMES</p>
+      <h2 data-id="712" style="font-size:42px;color:var(--charcoal);margin-bottom:40px;" id="results-heading-i5j6">Results That Speak in the Language of Leadership.</h2>
+    </div>
+    <div data-id="713" class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;">
+      <div data-id="714" class="card-shadow" style="border-top:4px solid var(--teal);padding:40px;text-align:center;">
+        <span data-id="715" class="counter-num counter" data-target="60" data-suffix="%">0%</span>
+        <p data-id="716" style="font-size:16px;color:var(--slate);margin-top:8px;">Reduction in Credentialing Cycle Time</p>
+      </div>
+      <div data-id="717" class="card-shadow" style="border-top:4px solid var(--teal);padding:40px;text-align:center;">
+        <span data-id="718" class="counter-num counter" data-target="98.7" data-suffix="%">0%</span>
+        <p data-id="719" style="font-size:16px;color:var(--slate);margin-top:8px;">Provider Directory Accuracy SLA</p>
+      </div>
+      <div data-id="720" class="card-shadow" style="border-top:4px solid var(--teal);padding:40px;text-align:center;">
+        <span data-id="721" class="counter-num counter" data-prefix="$" data-target="4.2" data-suffix="M">$0M</span>
+        <p data-id="722" style="font-size:16px;color:var(--slate);margin-top:8px;">Average Annual CMS Penalty Avoidance</p>
+      </div>
+      <div data-id="723" class="card-shadow" style="border-top:4px solid var(--teal);padding:40px;text-align:center;">
+        <span data-id="724" class="counter-num counter" data-target="340" data-suffix="+">0+</span>
+        <p data-id="725" style="font-size:16px;color:var(--slate);margin-top:8px;">Health Plans and Risk-Bearing Entities Served</p>
+      </div>
+    </div>
+    <div data-id="726" class="reveal card-shadow" style="border-left:4px solid var(--gold);padding:32px 40px;border-radius:0 8px 8px 0;max-width:720px;margin:48px auto;">
+      <p data-id="727" style="font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:var(--charcoal);line-height:1.6;margin-bottom:8px;">"Provider Data Health Check™ and Systems MRI™ create the diagnostic foundation for healthcare organizations to move from reactive data cleanup to governed operational integrity."</p>
+      <p data-id="728" style="font-size:14px;color:var(--muted);">— Sovereignty HealthTech™ Executive Promise</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section data-id="729" id="serve" class="section-pad" style="background:var(--white);">
+  <div data-id="730" class="container-main">
+    <div data-id="731" class="reveal">
+      <p data-id="732" class="micro-label" style="color:var(--teal);">OUR CLIENTS</p>
+      <h2 data-id="733" style="font-size:42px;color:var(--charcoal);margin-bottom:40px;" id="serve-heading-k7l8">Intelligence Infrastructure for the Entities That Bear the Risk.</h2>
+    </div>
+    <div data-id="734" class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;">
+      <div data-id="735" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;">
+        <svg data-id="736" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:12px;"><path data-id="737" d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path data-id="738" d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><line data-id="739" x1="20" y1="10" x2="20" y2="6"/></svg>
+        <h3 data-id="740" style="font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">Commercial Health Plans</h3>
+        <p data-id="741" style="font-size:14px;color:var(--muted);line-height:1.6;">Network compliance, directory accuracy, and adequacy benchmarking at scale.</p>
+      </div>
+      <div data-id="742" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;">
+        <svg data-id="743" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:12px;"><path data-id="744" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h3 data-id="745" style="font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">Medicare Advantage Organizations</h3>
+        <p data-id="746" style="font-size:14px;color:var(--muted);line-height:1.6;">CMS audit readiness, provider churn management, and Star Ratings protection.</p>
+      </div>
+      <div data-id="747" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;">
+        <svg data-id="748" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:12px;"><path data-id="749" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline data-id="750" points="14 2 14 8 20 8"/><line data-id="751" x1="16" y1="13" x2="8" y2="13"/><line data-id="752" x1="16" y1="17" x2="8" y2="17"/></svg>
+        <h3 data-id="753" style="font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">Medicaid Managed Care</h3>
+        <p data-id="754" style="font-size:14px;color:var(--muted);line-height:1.6;">State-specific compliance, network access monitoring, and directory mandate fulfillment.</p>
+      </div>
+      <div data-id="755" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;">
+        <svg data-id="756" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:12px;"><line data-id="757" x1="18" y1="20" x2="18" y2="10"/><line data-id="758" x1="12" y1="20" x2="12" y2="4"/><line data-id="759" x1="6" y1="20" x2="6" y2="14"/></svg>
+        <h3 data-id="760" style="font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">ACOs & Risk-Bearing Entities</h3>
+        <p data-id="761" style="font-size:14px;color:var(--muted);line-height:1.6;">Value-based network intelligence, specialist access optimization, and performance benchmarking.</p>
+      </div>
+      <div data-id="762" class="card-shadow card-hover" style="border-top:3px solid var(--teal);padding:32px;">
+        <svg data-id="763" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" style="margin-bottom:12px;"><path data-id="764" d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path data-id="765" d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        <h3 data-id="766" style="font-weight:700;font-size:17px;color:var(--charcoal);margin-bottom:8px;">Provider Networks & IPAs</h3>
+        <p data-id="767" style="font-size:14px;color:var(--muted);line-height:1.6;">Credentialing workflow automation, payer contract intelligence, and network growth analytics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section data-id="768" id="about" class="section-pad" style="background:var(--ice);">
+  <div data-id="769" class="container-main">
+    <div data-id="770" class="reveal" style="display:flex;gap:48px;flex-wrap:wrap;align-items:center;">
+      <div data-id="771" style="flex:1;min-width:300px;">
+        <p data-id="772" class="micro-label" style="color:var(--teal);">ABOUT THE COMPANY</p>
+        <h2 data-id="773" style="font-size:42px;color:var(--charcoal);margin-bottom:16px;" id="about-heading-m9n0">Sovereignty Was Built from the Inside.</h2>
+        <p data-id="774" style="font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:16px;">Sovereignty HealthTech™ was founded by practitioners who built, broke, and rebuilt provider data systems from within health plans, credentialing organizations, and network management teams. We have lived the operational reality your teams face.</p>
+        <p data-id="775" style="font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:20px;">Our diagnostic tools — the Provider Data Health Check™ and Systems MRI™ — were designed not as audit instruments, but as operating models. They trace every finding to evidence, every risk to a root cause, and every recommendation to an accountable owner.</p>
+        <p data-id="776" style="font-size:12px;color:var(--muted);">SHT-ARCH-2026-v4.2 · CONFIDENTIAL · Active in 50 States</p>
+      </div>
+      <div data-id="777" style="flex:0 0 400px;min-width:280px;">
+        <svg data-id="778" width="400" height="380" viewBox="0 0 400 380" fill="none" id="arch-svg-o1p2" style="width:100%;height:auto;">
+          <rect data-id="779" width="400" height="380" fill="#EDF7F7" rx="8"/>
+          <!-- Grid lines -->
+          <line data-id="780" x1="110" y1="0" x2="110" y2="380" stroke="#0E6D6C" stroke-width="0.6" opacity="0.15"/>
+          <line data-id="781" x1="200" y1="0" x2="200" y2="380" stroke="#0E6D6C" stroke-width="0.6" opacity="0.15"/>
+          <line data-id="782" x1="290" y1="0" x2="290" y2="380" stroke="#0E6D6C" stroke-width="0.6" opacity="0.15"/>
+          <line data-id="783" x1="0" y1="90" x2="400" y2="90" stroke="#0E6D6C" stroke-width="0.6" opacity="0.15"/>
+          <line data-id="784" x1="0" y1="160" x2="400" y2="160" stroke="#0E6D6C" stroke-width="0.6" opacity="0.15"/>
+          <line data-id="785" x1="0" y1="230" x2="400" y2="230" stroke="#0E6D6C" stroke-width="0.6" opacity="0.15"/>
+          <line data-id="786" x1="0" y1="300" x2="400" y2="300" stroke="#0E6D6C" stroke-width="0.6" opacity="0.15"/>
+          <!-- Outer border -->
+          <rect data-id="787" x="25" y="20" width="350" height="340" rx="4" stroke="#0E6D6C" stroke-width="1.5" fill="none" opacity="0.5"/>
+          <!-- Data Ingestion -->
+          <rect data-id="788" x="45" y="45" width="120" height="40" rx="4" stroke="#0E6D6C" stroke-width="1.5" fill="rgba(14,109,108,0.06)"/>
+          <text data-id="789" x="105" y="70" fill="#1A202C" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle">Data Ingestion</text>
+          <!-- Validation Layer -->
+          <rect data-id="790" x="235" y="45" width="120" height="40" rx="4" stroke="#0E6D6C" stroke-width="1.5" fill="rgba(14,109,108,0.06)"/>
+          <text data-id="791" x="295" y="70" fill="#1A202C" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle">Validation Layer</text>
+          <!-- Intelligence Engine -->
+          <rect data-id="792" x="130" y="115" width="140" height="45" rx="4" stroke="#1A9E9C" stroke-width="2" fill="rgba(26,158,156,0.08)"/>
+          <text data-id="793" x="200" y="142" fill="#0E6D6C" font-family="Inter" font-size="12" font-weight="700" text-anchor="middle">Intelligence Engine</text>
+          <!-- Credentialing -->
+          <rect data-id="794" x="45" y="190" width="100" height="40" rx="4" stroke="#0E6D6C" stroke-width="1.5" fill="rgba(14,109,108,0.06)"/>
+          <text data-id="795" x="95" y="215" fill="#1A202C" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle">Credentialing</text>
+          <!-- Directory -->
+          <rect data-id="796" x="155" y="190" width="90" height="40" rx="4" stroke="#0E6D6C" stroke-width="1.5" fill="rgba(14,109,108,0.06)"/>
+          <text data-id="797" x="200" y="215" fill="#1A202C" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle">Directory</text>
+          <!-- Compliance -->
+          <rect data-id="798" x="255" y="190" width="100" height="40" rx="4" stroke="#0E6D6C" stroke-width="1.5" fill="rgba(14,109,108,0.06)"/>
+          <text data-id="799" x="305" y="215" fill="#1A202C" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle">Compliance</text>
+          <!-- Executive Intelligence Output -->
+          <rect data-id="800" x="120" y="265" width="160" height="40" rx="4" stroke="#C9A84C" stroke-width="2" fill="rgba(201,168,76,0.08)"/>
+          <text data-id="801" x="200" y="290" fill="#C9A84C" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle">Executive Intelligence Output</text>
+          <!-- Connectors -->
+          <line data-id="802" x1="105" y1="85" x2="170" y2="115" stroke="#0E6D6C" stroke-width="1" opacity="0.5"/>
+          <line data-id="803" x1="295" y1="85" x2="230" y2="115" stroke="#0E6D6C" stroke-width="1" opacity="0.5"/>
+          <line data-id="804" x1="170" y1="160" x2="95" y2="190" stroke="#0E6D6C" stroke-width="1" opacity="0.5"/>
+          <line data-id="805" x1="200" y1="160" x2="200" y2="190" stroke="#0E6D6C" stroke-width="1" opacity="0.5"/>
+          <line data-id="806" x1="230" y1="160" x2="305" y2="190" stroke="#0E6D6C" stroke-width="1" opacity="0.5"/>
+          <line data-id="807" x1="95" y1="230" x2="160" y2="265" stroke="#0E6D6C" stroke-width="1" opacity="0.5"/>
+          <line data-id="808" x1="200" y1="230" x2="200" y2="265" stroke="#0E6D6C" stroke-width="1" opacity="0.5"/>
+          <line data-id="809" x1="305" y1="230" x2="240" y2="265" stroke="#0E6D6C" stroke-width="1" opacity="0.5"/>
+          <!-- Metadata -->
+          <text data-id="810" x="40" y="340" fill="#4A5568" font-family="Inter" font-size="9" opacity="0.6">SHT-ARCH-2026-v4.2</text>
+          <text data-id="811" x="360" y="340" fill="#4A5568" font-family="Inter" font-size="9" opacity="0.6" text-anchor="end">CONFIDENTIAL</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section data-id="812" id="contact" class="section-pad" style="background:linear-gradient(135deg,#0E6D6C,#0B5B5A);">
+  <div data-id="813" class="container-main">
+    <div data-id="814" class="reveal" style="display:flex;gap:48px;flex-wrap:wrap;align-items:center;">
+      <div data-id="815" style="flex:1;min-width:300px;">
+        <p data-id="816" class="micro-label" style="color:#81C9C8;">REQUEST A PROVIDER DATA HEALTH CHECK</p>
+        <h2 data-id="817" style="font-family:'Playfair Display',serif;font-size:42px;color:var(--white);margin-bottom:16px;" id="contact-heading-q3r4">Let's Diagnose Your Provider Data.</h2>
+        <p data-id="818" style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:24px;">Schedule a confidential diagnostic conversation with our provider network intelligence team. We assess your provider data infrastructure across identity, location, affiliation, credentialing, and delegation — and deliver a risk-ranked starting point.</p>
+        <div data-id="819" style="display:flex;flex-direction:column;gap:12px;">
+          <p data-id="820" style="font-size:14px;color:var(--white);display:flex;align-items:center;gap:8px;"><span data-id="821" style="color:#81C9C8;">●</span> Sovereign confidentiality on all submissions</p>
+          <p data-id="822" style="font-size:14px;color:var(--white);display:flex;align-items:center;gap:8px;"><span data-id="823" style="color:#81C9C8;">●</span> No minimum scope required</p>
+          <p data-id="824" style="font-size:14px;color:var(--white);display:flex;align-items:center;gap:8px;"><span data-id="825" style="color:#81C9C8;">●</span> Response within one business day</p>
+        </div>
+      </div>
+      <div data-id="826" style="flex:0 0 440px;min-width:300px;">
+        <div data-id="827" id="contact-form-card-s5t6" style="background:var(--white);border-radius:12px;padding:40px;box-shadow:0 24px 60px rgba(0,0,0,0.2);">
+          <form data-id="828" id="contact-form-sht">
+            <div data-id="829" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+              <input data-id="830" type="text" class="form-input" placeholder="Full Name" required id="form-name-u7v8"/>
+              <input data-id="831" type="text" class="form-input" placeholder="Organization" required id="form-org-w9x0"/>
+            </div>
+            <div data-id="832" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+              <input data-id="833" type="text" class="form-input" placeholder="Title" id="form-title-y1z2"/>
+              <input data-id="834" type="email" class="form-input" placeholder="Work Email" required id="form-email-a3b4"/>
+            </div>
+            <input data-id="835" type="tel" class="form-input" placeholder="Phone (optional)" style="margin-bottom:16px;" id="form-phone-c5d6"/>
+            <select data-id="836" class="form-input" style="margin-bottom:16px;color:var(--muted);" id="form-challenge-e7f8">
+              <option data-id="837" value="">Select your primary challenge</option>
+              <option data-id="838" value="directory">Directory Accuracy</option>
+              <option data-id="839" value="credentialing">Credentialing Latency</option>
+              <option data-id="840" value="compliance">Regulatory Compliance</option>
+              <option data-id="841" value="adequacy">Network Adequacy</option>
+              <option data-id="842" value="delegation">Delegation Integrity</option>
+              <option data-id="843" value="governance">Data Governance</option>
+              <option data-id="844" value="other">Other</option>
+            </select>
+            <button data-id="845" type="submit" id="form-submit-g9h0" style="width:100%;background:var(--teal);color:var(--white);font-family:'Inter',sans-serif;font-weight:700;font-size:15px;padding:16px;border-radius:6px;border:none;cursor:pointer;transition:background 0.2s;">Request My Provider Data Health Check →</button>
+          </form>
+          <p data-id="846" style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px;">Sovereign confidentiality. No spam. No sales pressure. Every finding traces to evidence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer data-id="847" class="footer-sht">
+  <div data-id="848" class="container-main">
+    <div data-id="849" style="display:flex;gap:40px;flex-wrap:wrap;margin-bottom:40px;">
+      <div data-id="850" style="flex:1;min-width:250px;">
+        <div data-id="851" style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <svg data-id="852" width="32" height="24" viewBox="0 0 32 24" fill="none"><circle data-id="853" cx="8" cy="12" r="4" fill="var(--teal)"/><circle data-id="854" cx="20" cy="5" r="4" fill="var(--teal-mid)"/><circle data-id="855" cx="20" cy="19" r="4" fill="var(--teal-mid)"/><line data-id="856" x1="11" y1="10" x2="17" y2="6" stroke="var(--teal)" stroke-width="1.5"/><line data-id="857" x1="11" y1="14" x2="17" y2="18" stroke="var(--teal)" stroke-width="1.5"/><line data-id="858" x1="20" y1="9" x2="20" y2="15" stroke="var(--teal-mid)" stroke-width="1.5"/></svg>
+          <span data-id="859" style="font-family:'Playfair Display',serif;font-size:20px;color:var(--white);">Sovereignty HealthTech™</span>
+        </div>
+        <p data-id="860" style="font-size:14px;color:#718096;">Provider Network Intelligence Infrastructure™</p>
+        <p data-id="861" style="font-size:12px;color:#4A5568;">Infrastructure for Dignity™</p>
+      </div>
+      <div data-id="862" class="footer-links" style="min-width:160px;">
+        <p data-id="863" style="font-weight:600;font-size:13px;color:var(--white);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;">Platform</p>
+        <a data-id="864" href="#diagnostics">Provider Data Health Check™</a>
+        <a data-id="865" href="#systems-mri">Systems MRI™</a>
+        <a data-id="866" href="#frameworks">PNII™ Roadmap</a>
+        <a data-id="867" href="#frameworks">SMART Roster vNext</a>
+        <a data-id="868" href="#frameworks">Operational Truth Retainer</a>
+      </div>
+      <div data-id="869" class="footer-links" style="min-width:160px;">
+        <p data-id="870" style="font-weight:600;font-size:13px;color:var(--white);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;">Resources</p>
+        <a data-id="871" href="#home">Executive Overview</a>
+        <a data-id="872" href="#frameworks">Engagement Framework</a>
+        <a data-id="873" href="#diagnostics">Diagnostic Tools</a>
+        <a data-id="874" href="#risk-assessment">Risk Assessment</a>
+      </div>
+      <div data-id="875" class="footer-links" style="min-width:120px;">
+        <p data-id="876" style="font-weight:600;font-size:13px;color:var(--white);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;">Company</p>
+        <a data-id="877" href="#about">About</a>
+        <a data-id="878" href="#serve">Who We Serve</a>
+        <a data-id="879" href="#contact">Careers</a>
+        <a data-id="880" href="#contact">Contact</a>
+      </div>
+      <div data-id="881" class="footer-links" style="min-width:120px;">
+        <p data-id="882" style="font-weight:600;font-size:13px;color:var(--white);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;">Legal</p>
+        <a data-id="883" href="#contact">Privacy Policy</a>
+        <a data-id="884" href="#contact">Terms of Service</a>
+        <a data-id="885" href="#contact">HIPAA Notice</a>
+        <a data-id="886" href="#contact">SOC 2 Report</a>
+      </div>
+    </div>
+    <div data-id="887" style="border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <p data-id="888" style="font-size:13px;color:#718096;">© 2026 Sovereignty HealthTech™. All Rights Reserved. Made by Copilot</p>
+      <p data-id="889" style="font-size:13px;color:#718096;">Privacy Policy · Terms · SOC 2 Certified</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTON -->
+<button data-id="890" id="float-btn-sht" style="position:relative;">
+  <span data-id="891" class="pulse-ring"></span>
+  <span data-id="892">⬤ Assess Your Risk</span>
+</button>
+
+<!-- QUIZ MODAL -->
+<div data-id="893" id="quiz-modal-sht">
+  <div data-id="894" class="quiz-card">
+    <button data-id="895" class="quiz-close" id="quiz-close-btn-i1j2">×</button>
+    <!-- INTRO -->
+    <div data-id="896" id="quiz-intro">
+      <div data-id="897" class="quiz-intro-bg">
+        <svg data-id="898" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" style="margin-bottom:16px;"><circle data-id="899" cx="12" cy="12" r="10"/><circle data-id="900" cx="12" cy="12" r="6"/><circle data-id="901" cx="12" cy="12" r="2"/></svg>
+        <p data-id="902" class="micro-label" style="color:#81C9C8;">PROVIDER DATA RISK ASSESSMENT</p>
+        <h2 data-id="903" style="font-family:'Playfair Display',serif;font-size:32px;color:var(--white);margin-bottom:12px;">Is Your Provider Data at Risk?</h2>
+        <p data-id="904" style="font-size:15px;color:rgba(255,255,255,0.8);max-width:480px;margin:0 auto 20px;line-height:1.6;">Answer 10 questions about your provider data operations. In under 3 minutes, you'll receive a risk profile across five integrity domains — and a clear recommendation for where to focus first.</p>
+        <div data-id="905" class="quiz-pills">
+          <span data-id="906" class="quiz-pill">10 Questions</span>
+          <span data-id="907" class="quiz-pill">~3 Minutes</span>
+          <span data-id="908" class="quiz-pill">Instant Results</span>
+        </div>
+      </div>
+      <div data-id="909" style="padding:32px 48px;">
+        <button data-id="910" id="start-quiz-btn-k3l4" style="width:100%;background:var(--teal);color:var(--white);font-family:'Inter',sans-serif;font-weight:600;font-size:16px;padding:16px;border-radius:6px;border:none;cursor:pointer;">Start the Assessment →</button>
+        <p data-id="911" style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px;">No account required. Sovereign confidentiality.</p>
+      </div>
+    </div>
+    <!-- QUESTIONS -->
+    <div data-id="912" id="quiz-questions" style="display:none;">
+      <div data-id="913" style="padding:16px 32px;border-bottom:1px solid #E2E8F0;display:flex;justify-content:space-between;align-items:center;">
+        <span data-id="914" style="font-weight:600;font-size:14px;color:var(--charcoal);">Provider Data Risk Assessment</span>
+        <span data-id="915" id="q-counter-m5n6" style="font-size:13px;color:var(--muted);">Question 1 of 10</span>
+      </div>
+      <div data-id="916" style="height:4px;background:#E2E8F0;"><div data-id="917" id="q-progress-o7p8" style="height:100%;background:var(--teal);width:10%;transition:width 0.3s;"></div></div>
+      <div data-id="918" id="q-domain-strip-q9r0" style="background:var(--teal-light);padding:10px 32px;display:flex;align-items:center;gap:8px;">
+        <div data-id="919" style="display:flex;gap:4px;" id="domain-dots-s1t2"></div>
+        <span data-id="920" id="domain-label-u3v4" style="color:var(--teal);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;"></span>
+      </div>
+      <div data-id="921" style="padding:40px 48px;" id="q-body-w5x6">
+        <div data-id="922" style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <span data-id="923" id="q-num-badge-y7z8" style="width:32px;height:32px;border-radius:50%;background:var(--teal);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;"></span>
+        </div>
+        <p data-id="924" id="q-text-a9b0" style="font-family:'Playfair Display',serif;font-size:22px;color:var(--charcoal);line-height:1.4;margin-bottom:28px;"></p>
+        <div data-id="925" id="q-answers-c1d2"></div>
+      </div>
+      <div data-id="926" style="padding:16px 48px 32px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #E2E8F0;">
+        <button data-id="927" id="q-back-btn-e3f4" style="background:none;border:none;color:var(--muted);font-weight:500;font-size:14px;cursor:pointer;display:none;">← Back</button>
+        <button data-id="928" id="q-next-btn-g5h6" style="background:var(--teal);color:var(--white);padding:12px 28px;border-radius:6px;font-weight:600;font-size:14px;border:none;cursor:pointer;opacity:0.5;pointer-events:none;margin-left:auto;">Next →</button>
+      </div>
+    </div>
+    <!-- RESULTS -->
+    <div data-id="929" id="quiz-results" style="display:none;">
+      <div data-id="930" style="padding:40px 48px;text-align:center;" id="results-zone-a-i7j8">
+        <svg data-id="931" class="gauge-svg" viewBox="0 0 200 110" id="gauge-svg-k9l0">
+          <path data-id="932" class="gauge-bg" d="M20 100 A80 80 0 0 1 180 100"/>
+          <path data-id="933" class="gauge-fill" id="gauge-fill-m1n2" d="M20 100 A80 80 0 0 1 180 100" stroke="var(--teal)" stroke-dasharray="251.33" stroke-dashoffset="251.33"/>
+        </svg>
+        <p data-id="934" id="gauge-score-o3p4" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--teal);margin:-20px 0 8px;"></p>
+        <span data-id="935" id="gauge-label-q5r6" style="display:inline-block;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;"></span>
+        <p data-id="936" id="gauge-headline-s7t8" style="font-size:16px;color:var(--charcoal);margin-top:16px;max-width:480px;margin-left:auto;margin-right:auto;"></p>
+      </div>
+      <div data-id="937" style="padding:0 48px 32px;" id="results-zone-b-u9v0">
+        <h4 data-id="938" style="font-weight:600;font-size:16px;margin-bottom:16px;">Risk by Domain</h4>
+        <div data-id="939" id="domain-bars-w1x2"></div>
+      </div>
+      <div data-id="940" style="padding:0 48px 32px;" id="results-zone-c-y3z4"></div>
+      <div data-id="941" style="padding:0 48px 40px;">
+        <div data-id="942" id="results-email-form-a5b6" style="background:var(--white);box-shadow:0 4px 24px rgba(0,0,0,0.07);padding:24px;border-radius:8px;border:1px solid #E2E8F0;">
+          <h4 data-id="943" style="font-weight:600;font-size:16px;margin-bottom:8px;">Receive Your Full Risk Summary</h4>
+          <p data-id="944" style="font-size:13px;color:var(--muted);margin-bottom:16px;">Enter your details below and we'll send a detailed report to your inbox.</p>
+          <div data-id="945" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <input data-id="946" type="text" class="form-input" placeholder="Name" id="results-name-c7d8"/>
+            <input data-id="947" type="text" class="form-input" placeholder="Organization" id="results-org-e9f0"/>
+          </div>
+          <div data-id="948" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <input data-id="949" type="text" class="form-input" placeholder="Title" id="results-title-g1h2"/>
+            <input data-id="950" type="email" class="form-input" placeholder="Email" id="results-email-i3j4"/>
+          </div>
+          <button data-id="951" id="results-submit-btn-k5l6" style="width:100%;background:var(--teal);color:var(--white);padding:14px;border-radius:6px;font-weight:600;font-size:14px;border:none;cursor:pointer;">Send Me My Risk Summary →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Guard Lucide
+if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+  lucide.createIcons();
+}
+
+// ============ INTERSECTION OBSERVER (SCROLL REVEAL) ============
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
+
+// ============ MOBILE MENU ============
+document.getElementById('hamburger-sht').addEventListener('click', () => {
+  document.getElementById('mobile-menu-sht').classList.add('open');
+});
+document.getElementById('mobile-close-sht').addEventListener('click', () => {
+  document.getElementById('mobile-menu-sht').classList.remove('open');
+});
+document.querySelectorAll('#mobile-menu-sht a').forEach(a => {
+  a.addEventListener('click', () => { document.getElementById('mobile-menu-sht').classList.remove('open'); });
+});
+
+// ============ SCORE BAR ANIMATION ============
+const barObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.score-bar-fill').forEach(bar => {
+        bar.style.width = bar.getAttribute('data-width') + '%';
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+const sbContainer = document.getElementById('score-bars-container-a7b8');
+if (sbContainer) barObs.observe(sbContainer);
+
+// ============ TAB SWITCHING ============
+document.querySelectorAll('.tab-btn-sht').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn-sht').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const tab = this.getAttribute('data-tab');
+    document.getElementById('tab-hc').style.display = tab === 'hc' ? 'block' : 'none';
+    document.getElementById('tab-mri').style.display = tab === 'mri' ? 'block' : 'none';
+    if (tab === 'hc') {
+      document.querySelectorAll('#score-bars-container-a7b8 .score-bar-fill').forEach(bar => {
+        bar.style.width = '0%';
+        setTimeout(() => { bar.style.width = bar.getAttribute('data-width') + '%'; }, 50);
+      });
+    }
+  });
+});
+
+// ============ COUNTER ANIMATION ============
+const counterEls = document.querySelectorAll('.counter');
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseFloat(el.getAttribute('data-target'));
+      const suffix = el.getAttribute('data-suffix') || '';
+      const prefix = el.getAttribute('data-prefix') || '';
+      const isDecimal = String(target).includes('.');
+      const duration = 2000;
+      const startTime = performance.now();
+      function update(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counterEls.forEach(el => counterObs.observe(el));
+
+// ============ CONTACT FORM ============
+document.getElementById('contact-form-sht').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const card = document.getElementById('contact-form-card-s5t6');
+  card.innerHTML = '<div style="text-align:center;padding:60px 40px;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><h3 style="font-family:Playfair Display,serif;font-size:24px;color:var(--charcoal);margin:20px 0 12px;">Thank You</h3><p style="font-size:15px;color:var(--muted);line-height:1.6;">Your request has been received. A member of our team will follow up within one business day.</p></div>';
+});
+
+// ============ QUIZ ============
+const questions = [
+  {domain:"Provider Identity",domainIndex:0,text:"How confident are you that your NPI, TIN, taxonomy, and contract records are consistent and accurate across all systems?",answers:["Fully confident — we maintain a validated golden record with systematic checks","Somewhat confident — errors surface occasionally but we manage them case by case","Not confident — mismatches are frequent and we have no systematic process"]},
+  {domain:"Provider Identity",domainIndex:0,text:"How often do provider identity corrections require manual escalation outside your normal workflow?",answers:["Rarely — most corrections are handled through automated or structured processes","Regularly — exception queues require consistent team attention","Daily — manual rework and unplanned escalations consume significant capacity"]},
+  {domain:"Operational Workflow",domainIndex:1,text:"How would you describe your process for receiving and validating provider roster submissions?",answers:["Structured — standardized intake with defined validation rules and accountability","Partially structured — inconsistent across submitting entities and file formats","Ad hoc — rosters arrive in varied formats with no standardized review process"]},
+  {domain:"Operational Workflow",domainIndex:1,text:"When a provider data error is identified, how quickly can your team trace its root cause?",answers:["Within hours — we have clear audit trails, data lineage, and defined ownership","Within days — tracing requires cross-team investigation and is not always complete","Weeks or unknown — root cause is often unclear or never formally identified"]},
+  {domain:"Governance & Compliance",domainIndex:2,text:"How prepared is your organization to demonstrate provider directory accuracy in a CMS or NCQA audit today?",answers:["Fully prepared — controls, documentation, and evidence chains are audit-ready","Partially prepared — gaps exist that would require rapid remediation under audit pressure","Underprepared — a formal audit would expose significant evidence and control gaps"]},
+  {domain:"Governance & Compliance",domainIndex:2,text:"Do you have clearly defined ownership and accountability for provider data governance decisions?",answers:["Yes — governance forums, decision rights, and escalation paths are clearly defined","Partially — ownership is clear in some areas but fragmented or absent in others","No — provider data governance lacks consistent ownership and formal accountability"]},
+  {domain:"Delegation Integrity",domainIndex:3,text:"How do you monitor the accuracy of provider data submitted by delegated entities such as IPAs, ACOs, or medical groups?",answers:["Actively — near-real-time monitoring with defined standards and accountability","Periodically — audits occur on a cycle but gaps can go undetected between reviews","Minimally — we rely on submissions without systematic independent validation"]},
+  {domain:"Delegation Integrity",domainIndex:3,text:"How would you characterize your exposure to provider data drift from delegated entity roster submissions?",answers:["Low — controls detect and correct drift quickly with defined escalation","Moderate — drift occurs and is addressed reactively when it surfaces","High — delegation drift is a known, recurring source of compliance and operational risk"]},
+  {domain:"Human System Integrity™",domainIndex:4,text:"How would you describe the burden placed on your team to maintain provider data accuracy day to day?",answers:["Manageable — automated processes carry most of the load with minimal manual labor","Significant — teams regularly absorb reconciliation and correction work manually","Unsustainable — invisible manual labor is a daily reality and a team capacity risk"]},
+  {domain:"Human System Integrity™",domainIndex:4,text:"When significant provider data issues arise, are they resolved within your operations team or escalated broadly?",answers:["Within our team — most issues are resolved with existing workflows and ownership","Mixed — some issues are contained, others require cross-functional coordination","Almost always escalated — multi-team coordination is required for most material issues"]}
+];
+const domainNames = ["Provider Identity","Operational Workflow","Governance & Compliance","Delegation Integrity","Human System Integrity™"];
+let quizState = { q: 0, answers: [], selectedPts: null };
+
+function openQuiz() {
+  document.getElementById('quiz-modal-sht').classList.add('open');
+  document.getElementById('quiz-intro').style.display = 'block';
+  document.getElementById('quiz-questions').style.display = 'none';
+  document.getElementById('quiz-results').style.display = 'none';
+}
+function closeQuiz() { document.getElementById('quiz-modal-sht').classList.remove('open'); }
+
+document.getElementById('quiz-close-btn-i1j2').addEventListener('click', closeQuiz);
+document.getElementById('open-quiz-btn-o5p6').addEventListener('click', openQuiz);
+document.getElementById('float-btn-sht').addEventListener('click', openQuiz);
+document.getElementById('start-quiz-btn-k3l4').addEventListener('click', function() {
+  quizState = { q: 0, answers: [], selectedPts: null };
+  showQuestion(0);
+});
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeQuiz(); });
+
+function showQuestion(idx) {
+  document.getElementById('quiz-intro').style.display = 'none';
+  document.getElementById('quiz-questions').style.display = 'block';
+  document.getElementById('quiz-results').style.display = 'none';
+  quizState.q = idx;
+  quizState.selectedPts = null;
+  const q = questions[idx];
+  document.getElementById('q-counter-m5n6').textContent = 'Question ' + (idx+1) + ' of 10';
+  document.getElementById('q-progress-o7p8').style.width = ((idx+1)*10) + '%';
+  // Domain dots
+  const dotsC = document.getElementById('domain-dots-s1t2');
+  dotsC.innerHTML = '';
+  for (let i = 0; i < 5; i++) {
+    const dot = document.createElement('span');
+    dot.style.cssText = 'width:10px;height:10px;border-radius:50%;display:inline-block;background:' + (i <= q.domainIndex ? 'var(--teal)' : '#E2E8F0') + ';';
+    dotsC.appendChild(dot);
+  }
+  document.getElementById('domain-label-u3v4').textContent = 'Domain ' + (q.domainIndex+1) + ' of 5 — ' + q.domain;
+  document.getElementById('q-num-badge-y7z8').textContent = idx + 1;
+  document.getElementById('q-text-a9b0').textContent = q.text;
+  // Answers
+  const ansC = document.getElementById('q-answers-c1d2');
+  ansC.innerHTML = '';
+  q.answers.forEach(function(ans, i) {
+    const card = document.createElement('button');
+    card.className = 'answer-card';
+    card.innerHTML = '<div class="radio-circle"></div><span>' + ans + '</span>';
+    card.setAttribute('data-pts', i + 1);
+    card.addEventListener('click', function() {
+      ansC.querySelectorAll('.answer-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      quizState.selectedPts = i + 1;
+      const nextBtn = document.getElementById('q-next-btn-g5h6');
+      nextBtn.style.opacity = '1';
+      nextBtn.style.pointerEvents = 'auto';
+    });
+    ansC.appendChild(card);
+  });
+  // If already answered
+  if (quizState.answers[idx] !== undefined) {
+    const prev = quizState.answers[idx];
+    ansC.querySelectorAll('.answer-card')[prev - 1].classList.add('selected');
+    quizState.selectedPts = prev;
+    document.getElementById('q-next-btn-g5h6').style.opacity = '1';
+    document.getElementById('q-next-btn-g5h6').style.pointerEvents = 'auto';
+  } else {
+    document.getElementById('q-next-btn-g5h6').style.opacity = '0.5';
+    document.getElementById('q-next-btn-g5h6').style.pointerEvents = 'none';
+  }
+  // Back btn
+  document.getElementById('q-back-btn-e3f4').style.display = idx > 0 ? 'inline-block' : 'none';
+  // Next label
+  document.getElementById('q-next-btn-g5h6').textContent = idx === 9 ? 'See Results →' : 'Next →';
+}
+
+document.getElementById('q-next-btn-g5h6').addEventListener('click', function() {
+  if (quizState.selectedPts === null) return;
+  quizState.answers[quizState.q] = quizState.selectedPts;
+  if (quizState.q < 9) { showQuestion(quizState.q + 1); }
+  else { showResults(); }
+});
+
+document.getElementById('q-back-btn-e3f4').addEventListener('click', function() {
+  if (quizState.q > 0) showQuestion(quizState.q - 1);
+});
+
+function showResults() {
+  document.getElementById('quiz-questions').style.display = 'none';
+  document.getElementById('quiz-results').style.display = 'block';
+  const total = quizState.answers.reduce((a,b) => a + b, 0);
+  const domainScores = [0,0,0,0,0];
+  questions.forEach((q, i) => { domainScores[q.domainIndex] += quizState.answers[i]; });
+  // Route
+  let route, gaugeColor, label, headline;
+  if (total <= 16) {
+    route = 'A'; gaugeColor = 'var(--teal)'; label = 'MANAGEABLE RISK';
+    headline = 'Your data shows localized gaps — a clear starting point exists.';
+  } else if (total <= 23) {
+    route = 'B'; gaugeColor = 'var(--amber)'; label = 'ELEVATED RISK';
+    headline = 'Multiple integrity domains are under stress — structured diagnosis needed.';
+  } else {
+    route = 'C'; gaugeColor = 'var(--rose)'; label = 'HIGH STRUCTURAL RISK';
+    headline = 'Structural complexity is present across your provider data system.';
+  }
+  // Gauge
+  const gaugeFill = document.getElementById('gauge-fill-m1n2');
+  gaugeFill.setAttribute('stroke', gaugeColor);
+  const maxArc = 251.33;
+  const pct = (total - 10) / 20;
+  setTimeout(() => { gaugeFill.style.strokeDashoffset = maxArc * (1 - pct); }, 100);
+  document.getElementById('gauge-score-o3p4').textContent = total + '/30';
+  document.getElementById('gauge-score-o3p4').style.color = gaugeColor;
+  const gl = document.getElementById('gauge-label-q5r6');
+  gl.textContent = label;
+  gl.style.background = gaugeColor;
+  gl.style.color = 'var(--white)';
+  document.getElementById('gauge-headline-s7t8').textContent = headline;
+  // Domain bars
+  const dbC = document.getElementById('domain-bars-w1x2');
+  dbC.innerHTML = '';
+  domainNames.forEach((name, i) => {
+    const sc = domainScores[i];
+    const col = sc <= 3 ? 'var(--teal)' : sc <= 4 ? 'var(--amber)' : 'var(--rose)';
+    const row = document.createElement('div');
+    row.style.cssText = 'margin-bottom:14px;';
+    row.innerHTML = '<div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;font-weight:600;">' + name + '</span><span style="font-size:13px;font-weight:700;color:' + col + ';">' + sc + '/6</span></div><div class="score-bar-track"><div style="height:100%;border-radius:5px;background:' + col + ';width:0;transition:width 1s ease;" data-dw="' + (sc/6*100) + '"></div></div>';
+    dbC.appendChild(row);
+  });
+  setTimeout(() => { dbC.querySelectorAll('[data-dw]').forEach(b => { b.style.width = b.getAttribute('data-dw') + '%'; }); }, 200);
+  // Recommendation
+  const recC = document.getElementById('results-zone-c-y3z4');
+  let recHTML = '';
+  if (route === 'A') {
+    recHTML = '<div style="border-left:4px solid var(--teal);background:var(--teal-light);padding:24px;border-radius:0 8px 8px 0;"><span style="display:inline-block;background:var(--teal);color:white;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;text-transform:uppercase;margin-bottom:8px;">RECOMMENDED</span><h4 style="font-weight:700;font-size:18px;margin-bottom:8px;">Provider Data Health Check™</h4><p style="font-size:14px;color:var(--muted);margin-bottom:16px;">A focused diagnostic to pinpoint exactly where your provider data gaps exist and how to address them efficiently.</p><div style="display:flex;gap:12px;flex-wrap:wrap;"><a href="#contact" style="background:var(--teal);color:white;padding:10px 20px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;display:inline-block;">Request a Health Check</a><a href="#diagnostics" style="border:1px solid var(--teal);color:var(--teal);padding:10px 20px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;display:inline-block;">Learn More</a></div></div>';
+  } else if (route === 'B') {
+    recHTML = '<div style="border-left:4px solid var(--amber);background:#FFFBEB;padding:24px;border-radius:0 8px 8px 0;"><span style="display:inline-block;background:var(--amber);color:white;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;text-transform:uppercase;margin-bottom:8px;">DUAL-PATH ASSESSMENT</span><h4 style="font-weight:700;font-size:18px;margin-bottom:8px;">Start with Health Check™ — MRI Likely Indicated</h4><p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Your results suggest risk across multiple domains. Begin with the Health Check to confirm scope, then proceed to Systems MRI™ if deeper structural analysis is warranted.</p><div style="display:flex;gap:12px;flex-wrap:wrap;"><a href="#contact" style="background:var(--teal);color:white;padding:10px 20px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;display:inline-block;">Request a Health Check</a><a href="#systems-mri" style="border:1px solid var(--teal);color:var(--teal);padding:10px 20px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;display:inline-block;">Explore Systems MRI™</a></div></div>';
+  } else {
+    recHTML = '<div style="border-left:4px solid var(--rose);background:#FEF2F2;padding:24px;border-radius:0 8px 8px 0;"><span style="display:inline-block;background:var(--rose);color:white;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;text-transform:uppercase;margin-bottom:8px;">STRUCTURAL RISK DETECTED</span><h4 style="font-weight:700;font-size:18px;margin-bottom:8px;">Systems MRI™ Diagnostic Recommended</h4><p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Your assessment indicates structural complexity across your provider data operating system. A full Systems MRI™ diagnostic is recommended to map root causes and build a remediation roadmap.</p><div style="display:flex;gap:12px;flex-wrap:wrap;"><a href="#systems-mri" style="background:var(--teal);color:white;padding:10px 20px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;display:inline-block;">Explore Systems MRI™</a><a href="#contact" style="border:1px solid var(--teal);color:var(--teal);padding:10px 20px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;display:inline-block;">Request a Health Check First</a></div></div>';
+  }
+  recC.innerHTML = recHTML;
+  // Close quiz on CTA links inside results
+  recC.querySelectorAll('a').forEach(a => { a.addEventListener('click', closeQuiz); });
+}
+
+// Results email form
+document.getElementById('results-submit-btn-k5l6').addEventListener('click', function() {
+  const container = document.getElementById('results-email-form-a5b6');
+  container.innerHTML = '<div style="text-align:center;padding:20px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p style="font-weight:600;color:var(--charcoal);margin-top:12px;">Thank you. Your risk summary is on its way.</p></div>';
+});
+
+// Smooth scroll for all anchors
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
