@@ -161,6 +161,16 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
 /* FORM */
 .form-input{font-family:'Inter',sans-serif;font-size:14px;border:1px solid #E2E8F0;border-radius:6px;padding:12px;width:100%;transition:border-color 0.2s;outline:none;}
 .form-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,109,108,0.1);}
+.health-form-compact{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;}
+.health-form-field{display:flex;flex-direction:column;gap:6px;}
+.health-form-field label,.health-form-consent{font-size:12px;font-weight:700;color:var(--charcoal);letter-spacing:0.01em;}
+.health-form-compact .form-input{font-size:13px;padding:10px 11px;border-radius:7px;background:#FBFDFD;}
+.health-form-wide{grid-column:1 / -1;}
+.health-form-compact textarea.form-input{min-height:88px;resize:vertical;}
+.health-form-consent{display:flex;gap:9px;align-items:flex-start;line-height:1.35;color:var(--slate);font-weight:600;}
+.health-form-submit{width:100%;background:var(--teal);color:var(--white);font-family:'Inter',sans-serif;font-weight:700;font-size:14px;padding:13px 16px;border-radius:7px;border:none;cursor:pointer;transition:background 0.2s,transform 0.2s;}
+.health-form-submit:hover{background:var(--teal-deep);transform:translateY(-1px);}
+@media(max-width:640px){.health-form-compact{grid-template-columns:1fr;}.health-form-wide{grid-column:auto;}}
 /* FOOTER */
 .footer-sht{background:var(--charcoal);padding:60px 0 32px;}
 .footer-links a{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;display:block;margin-bottom:10px;transition:color 0.2s;}
@@ -1088,31 +1098,92 @@ h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;}
           <p data-id="824" style="font-size:14px;color:var(--white);display:flex;align-items:center;gap:8px;"><span data-id="825" style="color:#81C9C8;">●</span> Response timing confirmed after intake submission</p>
         </div>
       </div>
-      <div data-id="826" style="flex:0 0 440px;min-width:300px;">
-        <div data-id="827" id="contact-form-card-s5t6" style="background:var(--white);border-radius:12px;padding:40px;box-shadow:0 24px 60px rgba(0,0,0,0.2);">
-          <form data-id="828" id="contact-form-sht">
-            <div data-id="829" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-              <input data-id="830" type="text" class="form-input" placeholder="Full Name" required id="form-name-u7v8"/>
-              <input data-id="831" type="text" class="form-input" placeholder="Organization" required id="form-org-w9x0"/>
+      <div data-id="826" style="flex:0 0 500px;min-width:300px;">
+        <div data-id="827" id="contact-form-card-s5t6" style="background:var(--white);border-radius:14px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,0.18);border:1px solid rgba(255,255,255,0.18);">
+          <form id="healthCheckForm" method="POST" class="health-form-compact">
+            <div class="health-form-field">
+              <label>Name</label>
+              <input type="text" name="name" class="form-input" required>
             </div>
-            <div data-id="832" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-              <input data-id="833" type="text" class="form-input" placeholder="Title" id="form-title-y1z2"/>
-              <input data-id="834" type="email" class="form-input" placeholder="Work Email" required id="form-email-a3b4"/>
+
+            <div class="health-form-field">
+              <label>Title</label>
+              <input type="text" name="title" class="form-input">
             </div>
-            <input data-id="835" type="tel" class="form-input" placeholder="Phone (optional)" style="margin-bottom:16px;" id="form-phone-c5d6"/>
-            <select data-id="836" class="form-input" style="margin-bottom:16px;color:var(--muted);" id="form-challenge-e7f8">
-              <option data-id="837" value="">Select your primary challenge</option>
-              <option data-id="838" value="directory">Directory Accuracy</option>
-              <option data-id="839" value="credentialing">Credentialing Latency</option>
-              <option data-id="840" value="compliance">Regulatory Compliance</option>
-              <option data-id="841" value="adequacy">Network Adequacy</option>
-              <option data-id="842" value="delegation">Delegation Integrity</option>
-              <option data-id="843" value="governance">Data Governance</option>
-              <option data-id="844" value="other">Other</option>
-            </select>
-            <button data-id="845" type="submit" id="form-submit-g9h0" style="width:100%;background:var(--teal);color:var(--white);font-family:'Inter',sans-serif;font-weight:700;font-size:15px;padding:16px;border-radius:6px;border:none;cursor:pointer;transition:background 0.2s;">Request My Provider Data Health Check →</button>
+
+            <div class="health-form-field">
+              <label>Organization</label>
+              <input type="text" name="organization" class="form-input" required>
+            </div>
+
+            <div class="health-form-field">
+              <label>Organization Type</label>
+              <select name="organizationType" class="form-input" required>
+                <option>Health Plan</option>
+                <option>IPA / ACO</option>
+                <option>Delegated Entity</option>
+                <option>Provider Network</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="health-form-field">
+              <label>Email</label>
+              <input type="email" name="email" class="form-input" required>
+            </div>
+
+            <div class="health-form-field">
+              <label>Phone</label>
+              <input type="text" name="phone" class="form-input">
+            </div>
+
+            <div class="health-form-field health-form-wide">
+              <label>Primary Area of Interest</label>
+              <select name="interest" class="form-input" required>
+                <option>Provider Data Integrity</option>
+                <option>Systems MRI™</option>
+                <option>PNII™ Architecture</option>
+                <option>Delegation Integrity</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="health-form-field health-form-wide">
+              <label>Current Challenge</label>
+              <textarea name="challenge" class="form-input" required></textarea>
+            </div>
+
+            <div class="health-form-field health-form-wide">
+              <label>Preferred Meeting Time</label>
+              <input type="text" name="meetingTime" class="form-input">
+            </div>
+
+            <label class="health-form-consent health-form-wide">
+              <input type="checkbox" name="consent" value="Yes" required style="margin-top:2px;">
+              <span>I consent to being contacted</span>
+            </label>
+
+            <button type="submit" class="health-form-submit health-form-wide">Submit</button>
           </form>
-          <p data-id="846" style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px;">Confidential. No spam. No sales pressure. Every finding traces to evidence.</p>
+
+          <script>
+          document.getElementById("healthCheckForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const json = Object.fromEntries(formData.entries());
+
+            await fetch("YOUR_POWER_AUTOMATE_WEBHOOK_URL", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(json)
+            });
+
+            alert("Thank you — your submission has been received.");
+            e.target.reset();
+          });
+          </script>
+          <p data-id="846" style="font-size:10.5px;color:var(--muted);text-align:center;margin-top:10px;">Confidential. No spam. No sales pressure. Every finding traces to evidence.</p>
         </div>
       </div>
     </div>
@@ -1336,11 +1407,7 @@ const counterObs = new IntersectionObserver((entries) => {
 counterEls.forEach(el => counterObs.observe(el));
 
 // ============ CONTACT FORM ============
-document.getElementById('contact-form-sht').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const card = document.getElementById('contact-form-card-s5t6');
-  card.innerHTML = '<div style="text-align:center;padding:60px 40px;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><h3 style="font-family:Playfair Display,serif;font-size:24px;color:var(--charcoal);margin:20px 0 12px;">Thank You</h3><p style="font-size:15px;color:var(--muted);line-height:1.6;">Your request has been received. A member of our team will follow up within one business day.</p></div>';
-});
+// Health Check form submission is handled inline near #healthCheckForm.
 
 // ============ QUIZ ============
 const questions = [
